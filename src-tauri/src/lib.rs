@@ -1,4 +1,5 @@
 mod actions;
+mod apple_asr;
 #[cfg(all(target_os = "macos", target_arch = "aarch64"))]
 mod apple_intelligence;
 mod audio_feedback;
@@ -218,6 +219,14 @@ fn initialize_core_logic(app_handle: &AppHandle) {
     app_handle.manage(transcription_manager.clone());
     app_handle.manage(history_manager.clone());
     app_handle.manage(tray::TrayState::new());
+    let apple_settings = get_settings(app_handle);
+    if apple_settings.apple_asr_mode != settings::AppleAsrMode::Off
+        && apple_settings.apple_asr_keep_loaded
+        && apple_asr::available()
+        && apple_asr::supports_model(&apple_settings.selected_model)
+    {
+        transcription_manager.initiate_model_load();
+    }
 
     // Note: Shortcuts are NOT initialized here.
     // The frontend is responsible for calling the `initialize_shortcuts` command
@@ -431,6 +440,9 @@ mod headless_guard_tests {
 /// path. Drives the same `TranscriptionManager::transcribe` the app uses; no
 /// mic, no VAD, no download. Returns a process exit code (0 ok, 1 runtime
 /// failure, 2 bad input/usage).
+#[cfg(target_os = "macos")]
+mod native_stdout;
+
 fn run_headless_transcription(app: &AppHandle, args: &CliArgs) -> i32 {
     use std::time::Instant;
 
@@ -550,23 +562,58 @@ fn run_headless_transcription(app: &AppHandle, args: &CliArgs) -> i32 {
     };
 
     // Cold load (timed).
+    #[cfg(target_os = "macos")]
+    let native_stdout = if args.json {
+        match native_stdout::NativeStdoutRedirect::to_stderr() {
+            Ok(guard) => Some(guard),
+            Err(error) => {
+                eprintln!("error: cannot isolate native diagnostics from JSON: {error}");
+                return 1;
+            }
+        }
+    } else {
+        None
+    };
     let load_start = Instant::now();
-    if let Err(e) = tm.load_model_with_device(&model_id, device_index) {
+    let native_override = args.apple_asr.map(|mode| apple_asr::NativeOverride {
+        mode,
+        model_directory: args.native_model_dir.clone(),
+        prewarm: args.apple_prewarm,
+    });
+    if let Err(e) = tm.load_model_with_accelerators(
+        &model_id,
+        device_index,
+        args.ort_accelerator,
+        native_override.as_ref(),
+    ) {
         eprintln!("error: load_model('{}') failed: {}", model_id, e);
         return 1;
     }
     let load_ms = load_start.elapsed().as_millis() as u64;
     let bound_backend = tm.current_backend();
+    let native_load = tm.native_load_timings();
 
     let runs = args.repeat.unwrap_or(1).max(1);
     let mut times_ms: Vec<u64> = Vec::new();
     let mut text = String::new();
+    let mut texts = Vec::new();
+    let mut backends = Vec::new();
     for i in 0..runs {
+        if i > 0 {
+            if let Some(delay) = args.repeat_delay_ms {
+                std::thread::sleep(std::time::Duration::from_millis(delay));
+            }
+        }
         // If the model's unload-timeout is "Immediately", transcribe() unloads
         // the engine after each run; reload (untimed) so repeats keep working
         // and the inference timing below stays clean.
         if !tm.is_model_loaded() {
-            if let Err(e) = tm.load_model_with_device(&model_id, device_index) {
+            if let Err(e) = tm.load_model_with_accelerators(
+                &model_id,
+                device_index,
+                args.ort_accelerator,
+                native_override.as_ref(),
+            ) {
                 eprintln!("error: reload before run {} failed: {}", i + 1, e);
                 return 1;
             }
@@ -580,6 +627,8 @@ fn run_headless_transcription(app: &AppHandle, args: &CliArgs) -> i32 {
             }
         }
         times_ms.push(t.elapsed().as_millis() as u64);
+        texts.push(text.clone());
+        backends.push(tm.current_backend());
     }
     let best_ms = times_ms.iter().copied().min().unwrap_or(0);
     let rtf = if best_ms > 0 {
@@ -588,12 +637,18 @@ fn run_headless_transcription(app: &AppHandle, args: &CliArgs) -> i32 {
         0.0
     };
 
+    #[cfg(target_os = "macos")]
+    drop(native_stdout);
+
     if args.json {
         println!(
             "{}",
             serde_json::json!({
                 "model": model_id,
                 "requested_device": requested_device,
+                "requested_ort_accelerator": args.ort_accelerator,
+                "requested_apple_asr": args.apple_asr,
+                "native_load": native_load,
                 "bound_backend": bound_backend,
                 "audio_secs": audio_secs,
                 "load_ms": load_ms,
@@ -601,6 +656,9 @@ fn run_headless_transcription(app: &AppHandle, args: &CliArgs) -> i32 {
                 "best_ms": best_ms,
                 "rtf": rtf,
                 "text": text,
+                "texts": texts,
+                "backend_by_run": backends,
+                "repeat_delay_ms": args.repeat_delay_ms,
             })
         );
     } else {
@@ -621,6 +679,10 @@ fn run_headless_transcription(app: &AppHandle, args: &CliArgs) -> i32 {
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run(cli_args: CliArgs) {
+    // Experimental fork builds must not be overwritten by the upstream updater.
+    if cfg!(feature = "apple-native-asr") {
+        std::env::set_var("HANDY_DISABLE_UPDATER", "1");
+    }
     // Avoid ggml-metal residency-set teardown assertions when a native engine
     // outlives the Tauri shutdown sequence (#1902). This must happen before
     // transcribe-cpp initializes its Metal device. Advanced users can restore
@@ -704,6 +766,8 @@ pub fn run(cli_args: CliArgs) {
             shortcut::change_show_tray_icon_setting,
             shortcut::change_transcribe_accelerator_setting,
             shortcut::change_ort_accelerator_setting,
+            commands::apple_asr::change_apple_asr_options,
+            commands::apple_asr::cancel_apple_asr_download,
             shortcut::change_transcribe_gpu_device,
             shortcut::get_available_accelerators,
             shortcut::handy_keys::start_handy_keys_recording,
@@ -775,7 +839,7 @@ pub fn run(cli_args: CliArgs) {
     specta_builder
         .export(
             Typescript::default().bigint(BigIntExportBehavior::Number),
-            "../src/bindings.ts",
+            concat!(env!("CARGO_MANIFEST_DIR"), "/../src/bindings.ts"),
         )
         .expect("Failed to export typescript bindings");
 

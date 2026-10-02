@@ -1,0 +1,26 @@
+[
+  {
+    "stage": "encoder",
+    "mode": "all",
+    "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/e51ac63c525bdf86fdeb4aa22180ba42f8b2ece9caddbe90787ed65328a0a137",
+    "partitions": 59
+  },
+  {
+    "stage": "encoder",
+    "mode": "neural",
+    "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2",
+    "partitions": 59
+  },
+  {
+    "stage": "decoder",
+    "mode": "all",
+    "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f67b0beeb45a43737645698f25dc1ec470a554cafb9eea6cd94569b7ae4452fb",
+    "partitions": 0
+  },
+  {
+    "stage": "decoder",
+    "mode": "neural",
+    "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/a94db02a68eb77e8631144634f276c21aca620150888f32b654d52b636e19de0",
+    "partitions": 0
+  }
+]

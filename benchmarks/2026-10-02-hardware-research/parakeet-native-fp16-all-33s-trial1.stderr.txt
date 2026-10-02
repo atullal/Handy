@@ -1,0 +1,19 @@
+2026-10-02 16:15:56.166 HandyAppleAsrProbe[83354:105059794] Error: resources.bin missing at file:///Users/atullal/Library/Caches/HandyAppleAsrProbe/com.apple.e5rt.e5bundlecache/25F80/536AB2183C15AEBB2710C73F5F49FB2C89507904E12E216131CF7CA6D5679854/239457A776E04C6A8351099AFABB4A0ADA1D88DEAF5A557B5A15FDB0BFB957D0.bundle/H17S.bundle/main/main_mps_graph/main_mps_graph.mpsgraphpackage/resources.bin
+Unable to load MPSGraphExecutable from path /Users/atullal/Library/Caches/HandyAppleAsrProbe/com.apple.e5rt.e5bundlecache/25F80/536AB2183C15AEBB2710C73F5F49FB2C89507904E12E216131CF7CA6D5679854/239457A776E04C6A8351099AFABB4A0ADA1D88DEAF5A557B5A15FDB0BFB957D0.bundle/H17S.bundle/main/main_mps_graph/main_mps_graph.mpsgraphpackage @ GetMPSGraphExecutable        5.87 real         2.10 user         1.15 sys
+          2458828800  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              217128  page reclaims
+              111207  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 351  voluntary context switches
+               51069  involuntary context switches
+         43524133139  instructions retired
+         13568946054  cycles elapsed
+          1546340128  peak memory footprint

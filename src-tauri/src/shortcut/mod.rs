@@ -1375,6 +1375,7 @@ pub fn change_ort_accelerator_setting(
     app: AppHandle,
     accelerator: settings::OrtAcceleratorSetting,
 ) -> Result<(), String> {
+    crate::managers::transcription::validate_ort_accelerator(accelerator)?;
     let mut s = settings::get_settings(&app);
     s.ort_accelerator = accelerator;
     save_accelerator_and_reload_next_use(&app, s);

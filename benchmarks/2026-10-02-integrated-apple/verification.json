@@ -1,0 +1,31 @@
+{
+  "rust_library_tests": {
+    "passed": 285,
+    "failed": 0
+  },
+  "coreml_cache_integration_tests": {
+    "passed": 1,
+    "failed": 0
+  },
+  "frontend_build": "passed",
+  "eslint": "passed",
+  "cargo_clippy": "passed with pre-existing warnings",
+  "swift_worker_release_build": "passed",
+  "signed_app_bundle": "verified",
+  "native_model_missing_test": "exit 1 with no JSON; no silent Metal fallback for explicit native CLI",
+  "integrated_benchmark": {
+    "routes": 5,
+    "durations": [
+      11,
+      33,
+      55
+    ],
+    "trials_per_point": 2,
+    "warm_samples_per_point": 10,
+    "all_normalized_words_match_metal": true
+  },
+  "macos27_or_core_ai_tested": false,
+  "existing_selected_model_and_accelerator_preferences_changed": false,
+  "upstream_base": "5ec58f696354fcf64ae831102e673779e0249717",
+  "benchmark_binary_sha256": "ef7898245725331831671f1537f892f9ee5b1681947e3a5ef479d097a10df5d9"
+}

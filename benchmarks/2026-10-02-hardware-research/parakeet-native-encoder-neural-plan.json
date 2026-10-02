@@ -1,0 +1,55 @@
+{
+  "interpretation" : "Predicted placement from MLComputePlan, not measured occupancy. Operation counts are not time-weighted and exclude nodes outside these Core ML partitions.",
+  "mode" : "neural",
+  "model_count" : 1,
+  "models" : [
+    {
+      "operations_without_device_usage" : 2287,
+      "operators" : {
+        "const" : 1993,
+        "ios16.constexpr_affine_dequantize" : 294,
+        "ios16.relu" : 3,
+        "ios16.sigmoid" : 24,
+        "ios16.silu" : 72,
+        "ios16.softmax" : 24,
+        "ios17.add" : 177,
+        "ios17.cast" : 11,
+        "ios17.conv" : 77,
+        "ios17.expand_dims" : 17,
+        "ios17.floor_div" : 3,
+        "ios17.layer_norm" : 120,
+        "ios17.less" : 5,
+        "ios17.linear" : 193,
+        "ios17.logical_and" : 2,
+        "ios17.logical_not" : 2,
+        "ios17.matmul" : 72,
+        "ios17.mul" : 106,
+        "ios17.reshape" : 145,
+        "ios17.slice_by_index" : 48,
+        "ios17.sub" : 3,
+        "ios17.transpose" : 172,
+        "pad" : 48,
+        "select" : 72,
+        "split" : 24,
+        "tile" : 8
+      },
+      "path" : "\/tmp\/handy-hardware-research\/parakeet-coreml\/parakeet_unified_encoder_int8.mlmodelc",
+      "preferred_operations" : {
+        "cpu" : 28,
+        "neural_engine" : 1400
+      },
+      "supported_operations" : {
+        "cpu" : 1428,
+        "neural_engine" : 1411
+      }
+    }
+  ],
+  "preferred_operations" : {
+    "cpu" : 28,
+    "neural_engine" : 1400
+  },
+  "supported_operations" : {
+    "cpu" : 1428,
+    "neural_engine" : 1411
+  }
+}

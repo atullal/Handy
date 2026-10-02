@@ -1,0 +1,1 @@
+{"audio_secs":11.0,"best_ms":226,"bound_backend":"onnx","load_ms":4365,"model":"moonshine-base","requested_device":"settings","requested_ort_accelerator":"coreml","rtf":48.67256637168141,"text":"And so my fellow Americans ask not what your country can do for you ask what you can do for your country","transcribe_ms":[1501,251,226,246,235,228]}

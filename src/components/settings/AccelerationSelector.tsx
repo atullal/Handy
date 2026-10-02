@@ -15,6 +15,8 @@ const ORT_LABELS: Record<OrtAcceleratorSetting, string> = {
   cuda: "CUDA",
   directml: "DirectML",
   rocm: "ROCm",
+  coreml: "settings.advanced.acceleration.ort.coreml",
+  coreml_neural_engine: "settings.advanced.acceleration.ort.neuralEngine",
 };
 
 interface AccelerationSelectorProps {
@@ -89,14 +91,16 @@ export const AccelerationSelector: FC<AccelerationSelectorProps> = ({
       }
       setTranscribeOptions(opts);
 
-      // ORT options (unchanged)
+      // Core ML is explicitly selectable; Auto keeps the established CPU path.
       const ortVals = available.ort.includes("auto")
         ? available.ort
         : ["auto", ...available.ort];
       setOrtOptions(
         ortVals.map((v) => ({
           value: v,
-          label: ORT_LABELS[v as OrtAcceleratorSetting] ?? v,
+          label: v.startsWith("coreml")
+            ? t(ORT_LABELS[v as OrtAcceleratorSetting])
+            : (ORT_LABELS[v as OrtAcceleratorSetting] ?? v),
         })),
       );
     });

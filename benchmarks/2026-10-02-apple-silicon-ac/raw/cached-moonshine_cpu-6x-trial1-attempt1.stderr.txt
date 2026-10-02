@@ -1,0 +1,19 @@
+error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s
+        0.43 real         0.34 user         0.04 sys
+           425574400  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               26567  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   1  voluntary context switches
+                 765  involuntary context switches
+          7582546937  instructions retired
+          1677043704  cycles elapsed
+           329811120  peak memory footprint

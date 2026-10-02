@@ -6,6 +6,7 @@ import type {
   AudioDevice,
   TranscribeAcceleratorSetting,
   OrtAcceleratorSetting,
+  AppleAsrMode,
   ShortcutActivation,
   VadBackend,
 } from "@/bindings";
@@ -82,6 +83,9 @@ const DEFAULT_AUDIO_DEVICE: AudioDevice = {
 const settingUpdaters: {
   [K in keyof Settings]?: (value: Settings[K]) => Promise<unknown>;
 } = {
+  apple_asr_mode: () => saveAppleAsrOptions(),
+  apple_asr_prewarm: () => saveAppleAsrOptions(),
+  apple_asr_keep_loaded: () => saveAppleAsrOptions(),
   always_on_microphone: (value) =>
     commands.updateMicrophoneMode(value as boolean),
   audio_feedback: (value) =>
@@ -195,6 +199,20 @@ const settingUpdaters: {
   extra_recording_buffer_ms: (value) =>
     commands.changeExtraRecordingBufferSetting(value as number),
 };
+
+async function saveAppleAsrOptions() {
+  const settings = useSettingsStore.getState().settings;
+  if (!settings) throw new Error("Settings are unavailable");
+  const result = await commands.changeAppleAsrOptions(
+    (settings.apple_asr_mode ?? "off") as AppleAsrMode,
+    settings.apple_asr_prewarm ?? true,
+    settings.apple_asr_keep_loaded ?? false,
+  );
+  if (result.status === "error") {
+    toast.error(result.error);
+    throw new Error(result.error);
+  }
+}
 
 export const useSettingsStore = create<SettingsStore>()(
   subscribeWithSelector((set, get) => ({

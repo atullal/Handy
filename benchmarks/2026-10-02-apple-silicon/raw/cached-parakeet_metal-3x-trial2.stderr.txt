@@ -1,0 +1,19 @@
+[2026-10-02][19:39:54][handy_app_lib][ERROR] Main window not found. Webview labels: []
+        1.46 real         1.74 user         0.46 sys
+           979795968  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               66127  page reclaims
+                  23  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+               16405  involuntary context switches
+         26694260887  instructions retired
+          9175484904  cycles elapsed
+           954484296  peak memory footprint

@@ -1,0 +1,1232 @@
+{
+  "interpretation": "Predicted placement from MLComputePlan, not measured occupancy. Operation counts are not time-weighted and exclude nodes outside these Core ML partitions.",
+  "mode": "neural",
+  "model_count": 59,
+  "models": [
+    {
+      "operations_without_device_usage": 7,
+      "operators": {
+        "const": 7,
+        "ios18.conv": 1,
+        "ios18.expand_dims": 1,
+        "ios18.tanh": 1,
+        "shape": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/0_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 4
+      },
+      "supported_operations": {
+        "cpu": 4,
+        "gpu": 3,
+        "neural_engine": 1
+      }
+    },
+    {
+      "operations_without_device_usage": 18,
+      "operators": {
+        "const": 18,
+        "ios18.cast": 3,
+        "ios18.concat": 3,
+        "ios18.mul": 6,
+        "ios18.reshape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/10_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 14,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 5,
+      "operators": {
+        "const": 5,
+        "ios18.mul": 1,
+        "ios18.transpose": 5
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/11_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 6
+      },
+      "supported_operations": {
+        "cpu": 6,
+        "gpu": 6,
+        "neural_engine": 6
+      }
+    },
+    {
+      "operations_without_device_usage": 23,
+      "operators": {
+        "const": 23,
+        "ios18.concat": 4,
+        "ios18.expand_dims": 4,
+        "ios18.mul": 1,
+        "ios18.slice_by_index": 2,
+        "shape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/12_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 11,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios18.add": 2,
+        "ios18.concat": 2,
+        "ios18.matmul": 2,
+        "ios18.mul": 4,
+        "ios18.softmax": 1,
+        "ios18.transpose": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/13_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 13,
+        "neural_engine": 13
+      }
+    },
+    {
+      "operations_without_device_usage": 9,
+      "operators": {
+        "const": 9,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/14_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 12
+      },
+      "supported_operations": {
+        "cpu": 12,
+        "gpu": 12,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 6,
+      "operators": {
+        "const": 6,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.erf": 1,
+        "ios18.mul": 4,
+        "ios18.real_div": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/15_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 9
+      },
+      "supported_operations": {
+        "cpu": 9,
+        "gpu": 9,
+        "neural_engine": 7
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 3,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1,
+        "shape": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/16_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 13,
+        "neural_engine": 12
+      }
+    },
+    {
+      "operations_without_device_usage": 18,
+      "operators": {
+        "const": 18,
+        "ios18.cast": 3,
+        "ios18.concat": 3,
+        "ios18.mul": 6,
+        "ios18.reshape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/17_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 14,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 5,
+      "operators": {
+        "const": 5,
+        "ios18.mul": 1,
+        "ios18.transpose": 5
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/18_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 6
+      },
+      "supported_operations": {
+        "cpu": 6,
+        "gpu": 6,
+        "neural_engine": 6
+      }
+    },
+    {
+      "operations_without_device_usage": 23,
+      "operators": {
+        "const": 23,
+        "ios18.concat": 4,
+        "ios18.expand_dims": 4,
+        "ios18.mul": 1,
+        "ios18.slice_by_index": 2,
+        "shape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/19_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 11,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 3,
+      "operators": {
+        "const": 3,
+        "ios18.instance_norm": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/1_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 1
+      },
+      "supported_operations": {
+        "cpu": 1,
+        "gpu": 1,
+        "neural_engine": 1
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios18.add": 2,
+        "ios18.concat": 2,
+        "ios18.matmul": 2,
+        "ios18.mul": 4,
+        "ios18.softmax": 1,
+        "ios18.transpose": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/20_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 13,
+        "neural_engine": 13
+      }
+    },
+    {
+      "operations_without_device_usage": 9,
+      "operators": {
+        "const": 9,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/21_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 12
+      },
+      "supported_operations": {
+        "cpu": 12,
+        "gpu": 12,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 6,
+      "operators": {
+        "const": 6,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.erf": 1,
+        "ios18.mul": 4,
+        "ios18.real_div": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/22_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 9
+      },
+      "supported_operations": {
+        "cpu": 9,
+        "gpu": 9,
+        "neural_engine": 7
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 3,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1,
+        "shape": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/23_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 13,
+        "neural_engine": 12
+      }
+    },
+    {
+      "operations_without_device_usage": 18,
+      "operators": {
+        "const": 18,
+        "ios18.cast": 3,
+        "ios18.concat": 3,
+        "ios18.mul": 6,
+        "ios18.reshape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/24_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 14,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 5,
+      "operators": {
+        "const": 5,
+        "ios18.mul": 1,
+        "ios18.transpose": 5
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/25_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 6
+      },
+      "supported_operations": {
+        "cpu": 6,
+        "gpu": 6,
+        "neural_engine": 6
+      }
+    },
+    {
+      "operations_without_device_usage": 23,
+      "operators": {
+        "const": 23,
+        "ios18.concat": 4,
+        "ios18.expand_dims": 4,
+        "ios18.mul": 1,
+        "ios18.slice_by_index": 2,
+        "shape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/26_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 11,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios18.add": 2,
+        "ios18.concat": 2,
+        "ios18.matmul": 2,
+        "ios18.mul": 4,
+        "ios18.softmax": 1,
+        "ios18.transpose": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/27_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 13,
+        "neural_engine": 13
+      }
+    },
+    {
+      "operations_without_device_usage": 9,
+      "operators": {
+        "const": 9,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/28_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 12
+      },
+      "supported_operations": {
+        "cpu": 12,
+        "gpu": 12,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 6,
+      "operators": {
+        "const": 6,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.erf": 1,
+        "ios18.mul": 4,
+        "ios18.real_div": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/29_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 9
+      },
+      "supported_operations": {
+        "cpu": 9,
+        "gpu": 9,
+        "neural_engine": 7
+      }
+    },
+    {
+      "operations_without_device_usage": 31,
+      "operators": {
+        "const": 31,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 4,
+        "ios18.conv": 2,
+        "ios18.erf": 2,
+        "ios18.gather": 1,
+        "ios18.mul": 6,
+        "ios18.pow": 1,
+        "ios18.real_div": 3,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1,
+        "ios18.transpose": 2,
+        "shape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/2_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 27
+      },
+      "supported_operations": {
+        "cpu": 27,
+        "gpu": 25,
+        "neural_engine": 5
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 3,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1,
+        "shape": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/30_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 13,
+        "neural_engine": 12
+      }
+    },
+    {
+      "operations_without_device_usage": 18,
+      "operators": {
+        "const": 18,
+        "ios18.cast": 3,
+        "ios18.concat": 3,
+        "ios18.mul": 6,
+        "ios18.reshape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/31_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 14,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 5,
+      "operators": {
+        "const": 5,
+        "ios18.mul": 1,
+        "ios18.transpose": 5
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/32_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 6
+      },
+      "supported_operations": {
+        "cpu": 6,
+        "gpu": 6,
+        "neural_engine": 6
+      }
+    },
+    {
+      "operations_without_device_usage": 23,
+      "operators": {
+        "const": 23,
+        "ios18.concat": 4,
+        "ios18.expand_dims": 4,
+        "ios18.mul": 1,
+        "ios18.slice_by_index": 2,
+        "shape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/33_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 11,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios18.add": 2,
+        "ios18.concat": 2,
+        "ios18.matmul": 2,
+        "ios18.mul": 4,
+        "ios18.softmax": 1,
+        "ios18.transpose": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/34_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 13,
+        "neural_engine": 13
+      }
+    },
+    {
+      "operations_without_device_usage": 9,
+      "operators": {
+        "const": 9,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/35_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 12
+      },
+      "supported_operations": {
+        "cpu": 12,
+        "gpu": 12,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 6,
+      "operators": {
+        "const": 6,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.erf": 1,
+        "ios18.mul": 4,
+        "ios18.real_div": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/36_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 9
+      },
+      "supported_operations": {
+        "cpu": 9,
+        "gpu": 9,
+        "neural_engine": 7
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 3,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1,
+        "shape": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/37_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 13,
+        "neural_engine": 12
+      }
+    },
+    {
+      "operations_without_device_usage": 18,
+      "operators": {
+        "const": 18,
+        "ios18.cast": 3,
+        "ios18.concat": 3,
+        "ios18.mul": 6,
+        "ios18.reshape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/38_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 14,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 5,
+      "operators": {
+        "const": 5,
+        "ios18.mul": 1,
+        "ios18.transpose": 5
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/39_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 6
+      },
+      "supported_operations": {
+        "cpu": 6,
+        "gpu": 6,
+        "neural_engine": 6
+      }
+    },
+    {
+      "operations_without_device_usage": 26,
+      "operators": {
+        "const": 26,
+        "ios18.cast": 4,
+        "ios18.concat": 4,
+        "ios18.expand_dims": 1,
+        "ios18.matmul": 1,
+        "ios18.mul": 6,
+        "ios18.reshape": 3,
+        "ios18.transpose": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/3_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 20
+      },
+      "supported_operations": {
+        "cpu": 20,
+        "gpu": 20,
+        "neural_engine": 16
+      }
+    },
+    {
+      "operations_without_device_usage": 23,
+      "operators": {
+        "const": 23,
+        "ios18.concat": 4,
+        "ios18.expand_dims": 4,
+        "ios18.mul": 1,
+        "ios18.slice_by_index": 2,
+        "shape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/40_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 11,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios18.add": 2,
+        "ios18.concat": 2,
+        "ios18.matmul": 2,
+        "ios18.mul": 4,
+        "ios18.softmax": 1,
+        "ios18.transpose": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/41_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 13,
+        "neural_engine": 13
+      }
+    },
+    {
+      "operations_without_device_usage": 9,
+      "operators": {
+        "const": 9,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/42_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 12
+      },
+      "supported_operations": {
+        "cpu": 12,
+        "gpu": 12,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 6,
+      "operators": {
+        "const": 6,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.erf": 1,
+        "ios18.mul": 4,
+        "ios18.real_div": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/43_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 9
+      },
+      "supported_operations": {
+        "cpu": 9,
+        "gpu": 9,
+        "neural_engine": 7
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 3,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1,
+        "shape": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/44_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 13,
+        "neural_engine": 12
+      }
+    },
+    {
+      "operations_without_device_usage": 18,
+      "operators": {
+        "const": 18,
+        "ios18.cast": 3,
+        "ios18.concat": 3,
+        "ios18.mul": 6,
+        "ios18.reshape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/45_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 14,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 5,
+      "operators": {
+        "const": 5,
+        "ios18.mul": 1,
+        "ios18.transpose": 5
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/46_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 6
+      },
+      "supported_operations": {
+        "cpu": 6,
+        "gpu": 6,
+        "neural_engine": 6
+      }
+    },
+    {
+      "operations_without_device_usage": 23,
+      "operators": {
+        "const": 23,
+        "ios18.concat": 4,
+        "ios18.expand_dims": 4,
+        "ios18.mul": 1,
+        "ios18.slice_by_index": 2,
+        "shape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/47_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 11,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios18.add": 2,
+        "ios18.concat": 2,
+        "ios18.matmul": 2,
+        "ios18.mul": 4,
+        "ios18.softmax": 1,
+        "ios18.transpose": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/48_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 13,
+        "neural_engine": 13
+      }
+    },
+    {
+      "operations_without_device_usage": 9,
+      "operators": {
+        "const": 9,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/49_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 12
+      },
+      "supported_operations": {
+        "cpu": 12,
+        "gpu": 12,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 8,
+      "operators": {
+        "const": 8,
+        "ios18.expand_dims": 2,
+        "ios18.mul": 1,
+        "ios18.transpose": 6
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/4_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 9
+      },
+      "supported_operations": {
+        "cpu": 9,
+        "gpu": 9,
+        "neural_engine": 9
+      }
+    },
+    {
+      "operations_without_device_usage": 6,
+      "operators": {
+        "const": 6,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.erf": 1,
+        "ios18.mul": 4,
+        "ios18.real_div": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/50_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 9
+      },
+      "supported_operations": {
+        "cpu": 9,
+        "gpu": 9,
+        "neural_engine": 7
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 3,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1,
+        "shape": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/51_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 13,
+        "neural_engine": 12
+      }
+    },
+    {
+      "operations_without_device_usage": 18,
+      "operators": {
+        "const": 18,
+        "ios18.cast": 3,
+        "ios18.concat": 3,
+        "ios18.mul": 6,
+        "ios18.reshape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/52_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 14,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 5,
+      "operators": {
+        "const": 5,
+        "ios18.mul": 1,
+        "ios18.transpose": 5
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/53_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 6
+      },
+      "supported_operations": {
+        "cpu": 6,
+        "gpu": 6,
+        "neural_engine": 6
+      }
+    },
+    {
+      "operations_without_device_usage": 23,
+      "operators": {
+        "const": 23,
+        "ios18.concat": 4,
+        "ios18.expand_dims": 4,
+        "ios18.mul": 1,
+        "ios18.slice_by_index": 2,
+        "shape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/54_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 11,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios18.add": 2,
+        "ios18.concat": 2,
+        "ios18.matmul": 2,
+        "ios18.mul": 4,
+        "ios18.softmax": 1,
+        "ios18.transpose": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/55_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 13,
+        "neural_engine": 13
+      }
+    },
+    {
+      "operations_without_device_usage": 9,
+      "operators": {
+        "const": 9,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/56_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 12
+      },
+      "supported_operations": {
+        "cpu": 12,
+        "gpu": 12,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 6,
+      "operators": {
+        "const": 6,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.erf": 1,
+        "ios18.mul": 4,
+        "ios18.real_div": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/57_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 9
+      },
+      "supported_operations": {
+        "cpu": 9,
+        "gpu": 9,
+        "neural_engine": 7
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 3,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/58_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 13,
+        "neural_engine": 12
+      }
+    },
+    {
+      "operations_without_device_usage": 23,
+      "operators": {
+        "const": 23,
+        "ios18.concat": 4,
+        "ios18.expand_dims": 4,
+        "ios18.mul": 1,
+        "ios18.slice_by_index": 2,
+        "shape": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/5_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 11,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios18.add": 2,
+        "ios18.concat": 2,
+        "ios18.matmul": 2,
+        "ios18.mul": 4,
+        "ios18.softmax": 1,
+        "ios18.transpose": 2
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/6_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 13
+      },
+      "supported_operations": {
+        "cpu": 13,
+        "gpu": 13,
+        "neural_engine": 13
+      }
+    },
+    {
+      "operations_without_device_usage": 9,
+      "operators": {
+        "const": 9,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/7_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 12
+      },
+      "supported_operations": {
+        "cpu": 12,
+        "gpu": 12,
+        "neural_engine": 11
+      }
+    },
+    {
+      "operations_without_device_usage": 6,
+      "operators": {
+        "const": 6,
+        "ios18.add": 2,
+        "ios18.cast": 1,
+        "ios18.erf": 1,
+        "ios18.mul": 4,
+        "ios18.real_div": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/8_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 9
+      },
+      "supported_operations": {
+        "cpu": 9,
+        "gpu": 9,
+        "neural_engine": 7
+      }
+    },
+    {
+      "operations_without_device_usage": 10,
+      "operators": {
+        "const": 10,
+        "ios16.reduce_mean": 2,
+        "ios18.add": 3,
+        "ios18.cast": 1,
+        "ios18.mul": 3,
+        "ios18.pow": 1,
+        "ios18.real_div": 1,
+        "ios18.sqrt": 1,
+        "ios18.sub": 1,
+        "shape": 1
+      },
+      "path": "/Users/atullal/Library/Caches/com.pais.handy/coreml/f12415f1fde7f7baac0f582fd8bed23041d9f5e33278172c23f4ca1cd96eeda2/13338581575766001613/9_dynamic_mlprogram/model/compiled_model.mlmodelc",
+      "preferred_operations": {
+        "cpu": 14
+      },
+      "supported_operations": {
+        "cpu": 14,
+        "gpu": 13,
+        "neural_engine": 12
+      }
+    }
+  ],
+  "preferred_operations": {
+    "cpu": 688
+  },
+  "supported_operations": {
+    "cpu": 688,
+    "gpu": 662,
+    "neural_engine": 583
+  }
+}

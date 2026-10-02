@@ -315,6 +315,40 @@ pub enum OrtAcceleratorSetting {
     #[serde(rename = "directml")]
     DirectMl,
     Rocm,
+    #[serde(rename = "coreml")]
+    CoreMl,
+    #[serde(rename = "coreml_neural_engine")]
+    CoreMlNeuralEngine,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq, Type, Default)]
+#[serde(rename_all = "snake_case")]
+pub enum AppleAsrMode {
+    #[default]
+    Off,
+    Gpu,
+    Neural,
+}
+
+impl std::str::FromStr for AppleAsrMode {
+    type Err = String;
+    fn from_str(value: &str) -> Result<Self, Self::Err> {
+        serde_json::from_value(serde_json::Value::String(value.to_string()))
+            .map_err(|error| error.to_string())
+    }
+}
+
+fn default_apple_asr_prewarm() -> bool {
+    true
+}
+
+impl std::str::FromStr for OrtAcceleratorSetting {
+    type Err = String;
+
+    fn from_str(value: &str) -> Result<Self, Self::Err> {
+        serde_json::from_value(serde_json::Value::String(value.to_string()))
+            .map_err(|error| error.to_string())
+    }
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq, Type, Default)]
@@ -429,6 +463,12 @@ pub struct AppSettings {
     pub custom_words: Vec<String>,
     #[serde(default)]
     pub model_unload_timeout: ModelUnloadTimeout,
+    #[serde(default)]
+    pub apple_asr_mode: AppleAsrMode,
+    #[serde(default = "default_apple_asr_prewarm")]
+    pub apple_asr_prewarm: bool,
+    #[serde(default)]
+    pub apple_asr_keep_loaded: bool,
     #[serde(default = "default_word_correction_threshold")]
     pub word_correction_threshold: f64,
     #[serde(default = "default_history_limit")]
@@ -934,6 +974,9 @@ pub fn get_default_settings() -> AppSettings {
         log_level: default_log_level(),
         custom_words: Vec::new(),
         model_unload_timeout: ModelUnloadTimeout::default(),
+        apple_asr_mode: AppleAsrMode::Off,
+        apple_asr_prewarm: true,
+        apple_asr_keep_loaded: false,
         word_correction_threshold: default_word_correction_threshold(),
         history_limit: default_history_limit(),
         recording_retention_period: default_recording_retention_period(),
@@ -1240,6 +1283,21 @@ pub fn get_recording_retention_period(app: &AppHandle) -> RecordingRetentionPeri
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn legacy_preferences_keep_native_apple_acceleration_opt_in() {
+        let mut legacy = serde_json::to_value(super::get_default_settings()).unwrap();
+        for key in [
+            "apple_asr_mode",
+            "apple_asr_prewarm",
+            "apple_asr_keep_loaded",
+        ] {
+            legacy.as_object_mut().unwrap().remove(key);
+        }
+        let migrated: super::AppSettings = serde_json::from_value(legacy).unwrap();
+        assert_eq!(migrated.apple_asr_mode, super::AppleAsrMode::Off);
+        assert!(migrated.apple_asr_prewarm);
+        assert!(!migrated.apple_asr_keep_loaded);
+    }
     use super::*;
 
     #[test]

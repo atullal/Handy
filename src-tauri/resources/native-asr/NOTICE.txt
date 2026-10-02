@@ -1,0 +1,17 @@
+Native ASR code: FluidAudio, Apache-2.0.
+https://github.com/FluidInference/FluidAudio
+Pinned revision: 0b1f46289fe27d95b5e66ad8be46e64f5ee02ae7
+The full Apache license is supplied as LICENSE-FluidAudio.txt.
+
+Downloaded model: NVIDIA Parakeet Unified English 0.6B, converted to Core ML
+by FluidInference. Model card declares CC-BY-4.0:
+https://huggingface.co/FluidInference/parakeet-unified-en-0.6b-coreml
+https://huggingface.co/nvidia/parakeet-unified-en-0.6b
+https://creativecommons.org/licenses/by/4.0/
+Pinned export: d32e972dd4315f1dc3f6be28fb2aab0ab3e80358
+Weights are downloaded on explicit opt-in, not included in this repository.
+
+Warm-up recording: JFK inaugural address excerpt from whisper.cpp samples:
+https://github.com/ggml-org/whisper.cpp/blob/master/samples/jfk.wav
+SHA-256 of bundled normalized WAV: d7d4e74b8a333ed02186008bc109a1b1a19d16da668bd56e785d80d69a16a72f
+Used locally to initialize prediction resources; its transcription is discarded.

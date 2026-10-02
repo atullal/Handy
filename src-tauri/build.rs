@@ -1,4 +1,5 @@
 fn main() {
+    build_native_asr_worker();
     #[cfg(all(target_os = "macos", target_arch = "aarch64"))]
     build_apple_intelligence_bridge();
 
@@ -35,6 +36,53 @@ fn main() {
     stage_vc_runtime_dlls();
 
     tauri_build::build()
+}
+
+fn build_native_asr_worker() {
+    use std::{env, fs, path::Path, process::Command};
+    println!("cargo:rerun-if-env-changed=HANDY_RESEARCH_FLUIDAUDIO_SOURCE");
+    println!("cargo:rerun-if-changed=../experiments/apple-silicon-asr/Package.swift");
+    println!(
+        "cargo:rerun-if-changed=../experiments/apple-silicon-asr/Sources/HandyNativeAsrWorker"
+    );
+    if env::var_os("CARGO_FEATURE_APPLE_NATIVE_ASR").is_none()
+        || env::var("CARGO_CFG_TARGET_OS").as_deref() != Ok("macos")
+        || env::var("CARGO_CFG_TARGET_ARCH").as_deref() != Ok("aarch64")
+    {
+        return;
+    }
+    let package = "../experiments/apple-silicon-asr";
+    let status = Command::new("xcrun")
+        .args([
+            "swift",
+            "build",
+            "--package-path",
+            package,
+            "-c",
+            "release",
+            "--product",
+            "HandyNativeAsrWorker",
+            "-j",
+            "8",
+        ])
+        .status()
+        .expect("Swift 6.2+ is required for --features apple-native-asr");
+    assert!(
+        status.success(),
+        "Native ASR worker build failed; see the Swift diagnostics above"
+    );
+    let target = Path::new("resources/native-asr/HandyNativeAsrWorker");
+    fs::copy(
+        Path::new(package).join(".build/release/HandyNativeAsrWorker"),
+        target,
+    )
+    .expect("Failed to stage native ASR worker resource");
+    // Ad-hoc sign the nested executable for local app bundles.
+    let status = Command::new("codesign")
+        .args(["--force", "--sign", "-", target.to_str().unwrap()])
+        .status()
+        .expect("Failed to sign native worker");
+    assert!(status.success(), "Native worker signing failed");
 }
 
 /// Stage the MSVC runtime DLLs into `transcribe-libs/` for app-local deployment.

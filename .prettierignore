@@ -19,3 +19,10 @@ src-tauri/src/catalog/catalog.json
 # Misc
 .DS_Store
 *.log
+
+# Archived numerical evidence and pinned third-party/generated artifacts.
+benchmarks/**
+src-tauri/vendor/**
+src-tauri/resources/native-asr/model-manifest.json
+experiments/**/.build/**
+experiments/**/.swiftpm/**

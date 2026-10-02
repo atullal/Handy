@@ -1,0 +1,1375 @@
+{
+  "chip": "Apple M5 Pro",
+  "memory_bytes": 25769803776,
+  "macos": "26.5.1",
+  "machine": "arm64",
+  "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t100%; finishing charge; 0:00 remaining present: true",
+  "audio_sha256": "d7d4e74b8a333ed02186008bc109a1b1a19d16da668bd56e785d80d69a16a72f",
+  "pcm_sha256": "a29462b8ebd467318000e683b9117ade46230d3255ed2024e7db894abd9b38c9",
+  "app_sha256": "ef7898245725331831671f1537f892f9ee5b1681947e3a5ef479d097a10df5d9",
+  "method": "New process per trial; one first inference plus warm repeats. Optional worker prewarm is included in load_ms and separately reported. Total app path includes PCM transport/text processing, excludes recording, VAD and paste. Longer inputs repeat the source, not a diverse quality corpus.",
+  "runs": [
+    {
+      "route": "metal",
+      "audio_s": 11.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "backend_by_run": [
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0"
+        ],
+        "best_ms": 69,
+        "bound_backend": "MTL0",
+        "load_ms": 471,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": null,
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "off",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 159.42028985507244,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          185,
+          69,
+          70,
+          72,
+          85,
+          245
+        ]
+      }
+    },
+    {
+      "route": "coreml_gpu",
+      "audio_s": 11.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "backend_by_run": [
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu"
+        ],
+        "best_ms": 47,
+        "bound_backend": "coreml_native_gpu",
+        "load_ms": 5880,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 3564.8715
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "gpu",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 234.04255319148936,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          417,
+          49,
+          47,
+          47,
+          48,
+          51
+        ]
+      }
+    },
+    {
+      "route": "coreml_neural",
+      "audio_s": 11.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "backend_by_run": [
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural"
+        ],
+        "best_ms": 57,
+        "bound_backend": "coreml_native_neural",
+        "load_ms": 1286,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 163.76425
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "neural",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 192.98245614035088,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          68,
+          57,
+          57,
+          57,
+          57,
+          57
+        ]
+      }
+    },
+    {
+      "route": "coreml_gpu_prewarmed",
+      "audio_s": 11.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "backend_by_run": [
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu"
+        ],
+        "best_ms": 47,
+        "bound_backend": "coreml_native_gpu",
+        "load_ms": 2921,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 384.236583,
+          "worker_load_ms": 359.530417
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "gpu",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 234.04255319148936,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          48,
+          48,
+          60,
+          47,
+          49,
+          49
+        ]
+      }
+    },
+    {
+      "route": "coreml_neural_prewarmed",
+      "audio_s": 11.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "backend_by_run": [
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural"
+        ],
+        "best_ms": 57,
+        "bound_backend": "coreml_native_neural",
+        "load_ms": 1312,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 66.893584,
+          "worker_load_ms": 146.440792
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "neural",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 192.98245614035088,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          58,
+          57,
+          57,
+          57,
+          57,
+          57
+        ]
+      }
+    },
+    {
+      "route": "coreml_neural_prewarmed",
+      "audio_s": 11.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 11.0,
+        "backend_by_run": [
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural"
+        ],
+        "best_ms": 56,
+        "bound_backend": "coreml_native_neural",
+        "load_ms": 1324,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 72.43975,
+          "worker_load_ms": 152.233625
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "neural",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 196.42857142857142,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          58,
+          58,
+          57,
+          56,
+          57,
+          57
+        ]
+      }
+    },
+    {
+      "route": "coreml_gpu_prewarmed",
+      "audio_s": 11.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 11.0,
+        "backend_by_run": [
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu"
+        ],
+        "best_ms": 46,
+        "bound_backend": "coreml_native_gpu",
+        "load_ms": 4607,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 422.129417,
+          "worker_load_ms": 2043.265167
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "gpu",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 239.1304347826087,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          51,
+          48,
+          47,
+          46,
+          47,
+          47
+        ]
+      }
+    },
+    {
+      "route": "coreml_neural",
+      "audio_s": 11.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 11.0,
+        "backend_by_run": [
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural"
+        ],
+        "best_ms": 56,
+        "bound_backend": "coreml_native_neural",
+        "load_ms": 1236,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 142.397334
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "neural",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 196.42857142857142,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          67,
+          56,
+          57,
+          56,
+          56,
+          56
+        ]
+      }
+    },
+    {
+      "route": "coreml_gpu",
+      "audio_s": 11.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 11.0,
+        "backend_by_run": [
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu"
+        ],
+        "best_ms": 47,
+        "bound_backend": "coreml_native_gpu",
+        "load_ms": 2407,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 272.011834
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "gpu",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 234.04255319148936,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          265,
+          48,
+          47,
+          47,
+          47,
+          47
+        ]
+      }
+    },
+    {
+      "route": "metal",
+      "audio_s": 11.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 11.0,
+        "backend_by_run": [
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0"
+        ],
+        "best_ms": 66,
+        "bound_backend": "MTL0",
+        "load_ms": 208,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": null,
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "off",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 166.66666666666666,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          108,
+          68,
+          66,
+          67,
+          67,
+          67
+        ]
+      }
+    },
+    {
+      "route": "metal",
+      "audio_s": 33.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 33.0,
+        "backend_by_run": [
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0"
+        ],
+        "best_ms": 153,
+        "bound_backend": "MTL0",
+        "load_ms": 193,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": null,
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "off",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 215.68627450980392,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          256,
+          160,
+          158,
+          158,
+          157,
+          153
+        ]
+      }
+    },
+    {
+      "route": "coreml_gpu",
+      "audio_s": 33.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 33.0,
+        "backend_by_run": [
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu"
+        ],
+        "best_ms": 143,
+        "bound_backend": "coreml_native_gpu",
+        "load_ms": 2950,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 801.584958
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "gpu",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 230.7692307692308,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          382,
+          150,
+          143,
+          145,
+          144,
+          145
+        ]
+      }
+    },
+    {
+      "route": "coreml_neural",
+      "audio_s": 33.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 33.0,
+        "backend_by_run": [
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural"
+        ],
+        "best_ms": 172,
+        "bound_backend": "coreml_native_neural",
+        "load_ms": 1312,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 191.166209
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "neural",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 191.86046511627907,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          263,
+          175,
+          173,
+          179,
+          173,
+          172
+        ]
+      }
+    },
+    {
+      "route": "coreml_gpu_prewarmed",
+      "audio_s": 33.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 33.0,
+        "backend_by_run": [
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu"
+        ],
+        "best_ms": 143,
+        "bound_backend": "coreml_native_gpu",
+        "load_ms": 2808,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 288.247917,
+          "worker_load_ms": 367.641792
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "gpu",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 230.7692307692308,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          148,
+          144,
+          144,
+          143,
+          145,
+          144
+        ]
+      }
+    },
+    {
+      "route": "coreml_neural_prewarmed",
+      "audio_s": 33.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 33.0,
+        "backend_by_run": [
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural"
+        ],
+        "best_ms": 172,
+        "bound_backend": "coreml_native_neural",
+        "load_ms": 1355,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 84.37025,
+          "worker_load_ms": 157.219333
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "neural",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 191.86046511627907,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          190,
+          174,
+          172,
+          173,
+          174,
+          175
+        ]
+      }
+    },
+    {
+      "route": "coreml_neural_prewarmed",
+      "audio_s": 33.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 33.0,
+        "backend_by_run": [
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural"
+        ],
+        "best_ms": 172,
+        "bound_backend": "coreml_native_neural",
+        "load_ms": 1287,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 66.936458,
+          "worker_load_ms": 120.609417
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "neural",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 191.86046511627907,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          175,
+          172,
+          173,
+          173,
+          174,
+          174
+        ]
+      }
+    },
+    {
+      "route": "coreml_gpu_prewarmed",
+      "audio_s": 33.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 33.0,
+        "backend_by_run": [
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu"
+        ],
+        "best_ms": 141,
+        "bound_backend": "coreml_native_gpu",
+        "load_ms": 3424,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 360.729708,
+          "worker_load_ms": 920.011584
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "gpu",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 234.0425531914894,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          149,
+          148,
+          143,
+          143,
+          141,
+          144
+        ]
+      }
+    },
+    {
+      "route": "coreml_neural",
+      "audio_s": 33.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 33.0,
+        "backend_by_run": [
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural"
+        ],
+        "best_ms": 171,
+        "bound_backend": "coreml_native_neural",
+        "load_ms": 1256,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 161.065042
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "neural",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 192.98245614035085,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          187,
+          172,
+          172,
+          172,
+          171,
+          172
+        ]
+      }
+    },
+    {
+      "route": "coreml_gpu",
+      "audio_s": 33.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 33.0,
+        "backend_by_run": [
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu"
+        ],
+        "best_ms": 143,
+        "bound_backend": "coreml_native_gpu",
+        "load_ms": 2967,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 805.852375
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "gpu",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 230.7692307692308,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          527,
+          164,
+          144,
+          143,
+          143,
+          144
+        ]
+      }
+    },
+    {
+      "route": "metal",
+      "audio_s": 33.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 33.0,
+        "backend_by_run": [
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0"
+        ],
+        "best_ms": 150,
+        "bound_backend": "MTL0",
+        "load_ms": 185,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": null,
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "off",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 220.0,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          172,
+          150,
+          150,
+          152,
+          189,
+          155
+        ]
+      }
+    },
+    {
+      "route": "metal",
+      "audio_s": 55.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 55.0,
+        "backend_by_run": [
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0"
+        ],
+        "best_ms": 251,
+        "bound_backend": "MTL0",
+        "load_ms": 163,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": null,
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "off",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 219.12350597609563,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          268,
+          256,
+          268,
+          256,
+          258,
+          251
+        ]
+      }
+    },
+    {
+      "route": "coreml_gpu",
+      "audio_s": 55.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 55.0,
+        "backend_by_run": [
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu"
+        ],
+        "best_ms": 245,
+        "bound_backend": "coreml_native_gpu",
+        "load_ms": 2425,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 265.875208
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "gpu",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 224.48979591836735,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          558,
+          253,
+          245,
+          248,
+          314,
+          261
+        ]
+      }
+    },
+    {
+      "route": "coreml_neural",
+      "audio_s": 55.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 55.0,
+        "backend_by_run": [
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural"
+        ],
+        "best_ms": 290,
+        "bound_backend": "coreml_native_neural",
+        "load_ms": 1357,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 197.99175
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "neural",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 189.6551724137931,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          311,
+          293,
+          297,
+          292,
+          291,
+          290
+        ]
+      }
+    },
+    {
+      "route": "coreml_gpu_prewarmed",
+      "audio_s": 55.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 55.0,
+        "backend_by_run": [
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu"
+        ],
+        "best_ms": 247,
+        "bound_backend": "coreml_native_gpu",
+        "load_ms": 4895,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 482.1565,
+          "worker_load_ms": 2250.388375
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "gpu",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 222.67206477732793,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          278,
+          247,
+          252,
+          265,
+          257,
+          252
+        ]
+      }
+    },
+    {
+      "route": "coreml_neural_prewarmed",
+      "audio_s": 55.0,
+      "trial": 1,
+      "result": {
+        "audio_secs": 55.0,
+        "backend_by_run": [
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural"
+        ],
+        "best_ms": 290,
+        "bound_backend": "coreml_native_neural",
+        "load_ms": 1343,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 66.315709,
+          "worker_load_ms": 154.799792
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "neural",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 189.6551724137931,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          321,
+          299,
+          295,
+          293,
+          290,
+          290
+        ]
+      }
+    },
+    {
+      "route": "coreml_neural_prewarmed",
+      "audio_s": 55.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 55.0,
+        "backend_by_run": [
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural"
+        ],
+        "best_ms": 289,
+        "bound_backend": "coreml_native_neural",
+        "load_ms": 1273,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 65.535541,
+          "worker_load_ms": 118.15375
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "neural",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 190.3114186851211,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          290,
+          294,
+          290,
+          292,
+          291,
+          289
+        ]
+      }
+    },
+    {
+      "route": "coreml_gpu_prewarmed",
+      "audio_s": 55.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 55.0,
+        "backend_by_run": [
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu"
+        ],
+        "best_ms": 246,
+        "bound_backend": "coreml_native_gpu",
+        "load_ms": 2891,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 282.871125,
+          "worker_load_ms": 454.93
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "gpu",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 223.57723577235774,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          260,
+          249,
+          255,
+          246,
+          255,
+          246
+        ]
+      }
+    },
+    {
+      "route": "coreml_neural",
+      "audio_s": 55.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 55.0,
+        "backend_by_run": [
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural",
+          "coreml_native_neural"
+        ],
+        "best_ms": 291,
+        "bound_backend": "coreml_native_neural",
+        "load_ms": 1264,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 160.075084
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "neural",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 189.00343642611685,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          306,
+          291,
+          294,
+          293,
+          293,
+          295
+        ]
+      }
+    },
+    {
+      "route": "coreml_gpu",
+      "audio_s": 55.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 55.0,
+        "backend_by_run": [
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu",
+          "coreml_native_gpu"
+        ],
+        "best_ms": 247,
+        "bound_backend": "coreml_native_gpu",
+        "load_ms": 2434,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 273.992125
+        },
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "gpu",
+        "requested_device": "settings",
+        "requested_ort_accelerator": null,
+        "rtf": 222.67206477732793,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          495,
+          247,
+          254,
+          247,
+          256,
+          249
+        ]
+      }
+    },
+    {
+      "route": "metal",
+      "audio_s": 55.0,
+      "trial": 2,
+      "result": {
+        "audio_secs": 55.0,
+        "backend_by_run": [
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0",
+          "MTL0"
+        ],
+        "best_ms": 259,
+        "bound_backend": "MTL0",
+        "load_ms": 187,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "native_load": null,
+        "repeat_delay_ms": null,
+        "requested_apple_asr": "off",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 212.35521235521236,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "texts": [
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+          "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+        ],
+        "transcribe_ms": [
+          279,
+          266,
+          271,
+          261,
+          269,
+          259
+        ]
+      }
+    }
+  ]
+}

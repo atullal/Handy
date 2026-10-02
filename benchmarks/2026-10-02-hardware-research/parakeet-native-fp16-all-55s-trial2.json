@@ -1,0 +1,25 @@
+{
+  "audio_s" : 55,
+  "decoder_compute_units" : "cpu",
+  "encoder_compute_units" : "all",
+  "encoder_precision" : "fp16",
+  "engine" : "FluidAudio native Core ML Parakeet Unified offline",
+  "load_ms" : 255.845833,
+  "method" : "First inference plus five warm repeats; end-to-end model inference including Swift mel features and RNNT decoding, excluding audio read\/resampling.",
+  "transcribe_ms" : [
+    474.15433300000001,
+    248.54949999999999,
+    247.70733300000001,
+    242.98429200000001,
+    243.14516699999999,
+    245.832708
+  ],
+  "transcripts" : [
+    "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+    "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+    "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+    "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+    "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+    "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country."
+  ]
+}

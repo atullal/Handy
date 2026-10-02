@@ -459,6 +459,17 @@ async changeOrtAcceleratorSetting(accelerator: OrtAcceleratorSetting) : Promise<
     else return { status: "error", error: e  as any };
 }
 },
+async changeAppleAsrOptions(mode: AppleAsrMode, prewarm: boolean, keepLoaded: boolean) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("change_apple_asr_options", { mode, prewarm, keepLoaded }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async cancelAppleAsrDownload() : Promise<void> {
+    await TAURI_INVOKE("cancel_apple_asr_download");
+},
 async changeTranscribeGpuDevice(device: string | null) : Promise<Result<null, string>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("change_transcribe_gpu_device", { device }) };
@@ -469,7 +480,7 @@ async changeTranscribeGpuDevice(device: string | null) : Promise<Result<null, st
 },
 /**
  * Return which accelerators and GPU devices are available for this build.
- * 
+ *
  * First-call cost is dominated by enumerating GPU devices through the
  * transcribe.cpp Metal/Vulkan backend, which loads dynamic libraries and
  * probes hardware. Run it on the blocking pool so the webview thread
@@ -909,7 +920,7 @@ async updateRecordingRetentionPeriod(period: string) : Promise<Result<null, stri
 },
 /**
  * Checks if the Mac is a laptop by detecting battery presence
- * 
+ *
  * This uses pmset to check for battery information.
  * Returns true if a battery is detected (laptop), false otherwise (desktop)
  */
@@ -949,69 +960,70 @@ streamTextEvent: "stream-text-event"
  * object, so a partial store can never fail the whole load (#1619).
  * Field-level defaults below take precedence where present.
  */
-export type AppSettings = { 
+export type AppSettings = {
 /**
  * Internal settings schema marker for one-time migrations. Fresh installs
  * start at the current version; existing stores missing this key are
  * treated as version 0 and migrated forward.
  */
-settings_schema_version?: number; 
+settings_schema_version?: number;
 /**
  * Defaults to empty on partial stores; the load path merges in the
  * default bindings for any missing keys before the settings are used.
  */
-bindings?: Partial<{ [key in string]: ShortcutBinding }>; 
+bindings?: Partial<{ [key in string]: ShortcutBinding }>;
 /**
  * Replaces the pre-0.10 `push_to_talk` bool; stores missing this key are
  * migrated from it in `apply_settings_migrations`.
  */
-shortcut_activation?: ShortcutActivation; 
+shortcut_activation?: ShortcutActivation;
 /**
  * Hold-or-toggle only: a press held at least this long is push-to-talk,
  * anything shorter is a tap that locks recording on.
  */
-hold_threshold_ms?: number; audio_feedback?: boolean; audio_feedback_volume?: number; sound_theme?: SoundTheme; start_hidden?: boolean; autostart_enabled?: boolean; update_checks_enabled?: boolean; show_whats_new_on_update?: boolean; 
+hold_threshold_ms?: number; audio_feedback?: boolean; audio_feedback_volume?: number; sound_theme?: SoundTheme; start_hidden?: boolean; autostart_enabled?: boolean; update_checks_enabled?: boolean; show_whats_new_on_update?: boolean;
 /**
  * The app version whose What's New the user has already seen. Fresh installs
  * default to the current version (nothing is "new" to them). Existing users
  * upgrading from before this key existed are blanked by the migration so they
  * see the current release's notes — see `apply_settings_migrations`.
  */
-whats_new_last_seen_version?: string; selected_model?: string; onboarding_completed?: boolean; always_on_microphone?: boolean; selected_microphone?: string | null; 
+whats_new_last_seen_version?: string; selected_model?: string; onboarding_completed?: boolean; always_on_microphone?: boolean; selected_microphone?: string | null;
 /**
  * Which input channel to use on the selected microphone device.
  * None means "average all channels" (original behavior).
  */
-selected_channel?: number | null; clamshell_microphone?: string | null; selected_output_device?: string | null; translate_to_english?: boolean; selected_language?: string; overlay_position?: OverlayPosition; debug_mode?: boolean; log_level?: LogLevel; custom_words?: string[]; model_unload_timeout?: ModelUnloadTimeout; word_correction_threshold?: number; history_limit?: number; recording_retention_period?: RecordingRetentionPeriod; paste_method?: PasteMethod; clipboard_handling?: ClipboardHandling; auto_submit?: boolean; auto_submit_key?: AutoSubmitKey; post_process_enabled?: boolean; post_process_provider_id?: string; post_process_providers?: PostProcessProvider[]; post_process_api_keys?: SecretMap; post_process_models?: Partial<{ [key in string]: string }>; post_process_prompts?: LLMPrompt[]; post_process_selected_prompt_id?: string | null; mute_while_recording?: boolean; append_trailing_space?: boolean; app_language?: string; theme?: Theme; experimental_enabled?: boolean; lazy_stream_close?: boolean; keyboard_implementation?: KeyboardImplementation; show_tray_icon?: boolean; paste_delay_ms?: number; paste_delay_after_ms?: number; 
+selected_channel?: number | null; clamshell_microphone?: string | null; selected_output_device?: string | null; translate_to_english?: boolean; selected_language?: string; overlay_position?: OverlayPosition; debug_mode?: boolean; log_level?: LogLevel; custom_words?: string[]; model_unload_timeout?: ModelUnloadTimeout; apple_asr_mode?: AppleAsrMode; apple_asr_prewarm?: boolean; apple_asr_keep_loaded?: boolean; word_correction_threshold?: number; history_limit?: number; recording_retention_period?: RecordingRetentionPeriod; paste_method?: PasteMethod; clipboard_handling?: ClipboardHandling; auto_submit?: boolean; auto_submit_key?: AutoSubmitKey; post_process_enabled?: boolean; post_process_provider_id?: string; post_process_providers?: PostProcessProvider[]; post_process_api_keys?: SecretMap; post_process_models?: Partial<{ [key in string]: string }>; post_process_prompts?: LLMPrompt[]; post_process_selected_prompt_id?: string | null; mute_while_recording?: boolean; append_trailing_space?: boolean; app_language?: string; theme?: Theme; experimental_enabled?: boolean; lazy_stream_close?: boolean; keyboard_implementation?: KeyboardImplementation; show_tray_icon?: boolean; paste_delay_ms?: number; paste_delay_after_ms?: number;
 /**
  * Debug-gated ("beta") receipt-sequenced paste: restore the clipboard only
  * after the target app actually reads the transcript, instead of after a
  * fixed delay. See `paste_tx`. macOS and Windows only.
  */
-reliable_paste?: boolean; typing_tool?: TypingTool; external_script_path?: string | null; filler_word_removal_enabled?: boolean; custom_filler_words?: string[] | null; transcribe_accelerator?: TranscribeAcceleratorSetting; ort_accelerator?: OrtAcceleratorSetting; 
+reliable_paste?: boolean; typing_tool?: TypingTool; external_script_path?: string | null; filler_word_removal_enabled?: boolean; custom_filler_words?: string[] | null; transcribe_accelerator?: TranscribeAcceleratorSetting; ort_accelerator?: OrtAcceleratorSetting;
 /**
  * Stable transcribe.cpp device selector. This is derived from the backend's
  * `device_id` when available (or its name for backends such as Metal),
  * never from the process-local device registry index.
  */
-transcribe_gpu_device?: string | null; extra_recording_buffer_ms?: number; vad_enabled?: boolean; 
+transcribe_gpu_device?: string | null; extra_recording_buffer_ms?: number; vad_enabled?: boolean;
 /**
  * Experimental detector implementation. Silero remains the stable default.
  */
-vad_backend?: VadBackend; 
+vad_backend?: VadBackend;
 /**
  * Which recording overlay to show: None / Minimal / Live. Streaming mode is
  * not gated on this — that follows model capability. Migrated from the old
  * `overlay_position` (position `none` → style `None`).
  */
 overlay_style?: OverlayStyle }
+export type AppleAsrMode = "off" | "gpu" | "neural"
 export type AudioDevice = { index: string; name: string; is_default: boolean }
 export type AutoSubmitKey = "enter" | "ctrl_enter" | "cmd_enter"
-export type AvailableAccelerators = { transcribe: string[]; ort: string[]; gpu_devices: GpuDeviceOption[] }
+export type AvailableAccelerators = { apple_native: boolean; transcribe: string[]; ort: string[]; gpu_devices: GpuDeviceOption[] }
 export type BindingResponse = { success: boolean; binding: ShortcutBinding | null; error: string | null }
 export type ClipboardHandling = "dont_modify" | "copy_to_clipboard"
 export type CustomSounds = { start: boolean; stop: boolean }
-export type EngineType = 
+export type EngineType =
 /**
  * Any GGML/GGUF model loaded through transcribe-cpp (Whisper, Parakeet,
  * Voxtral, Qwen3-ASR, Nemotron, …). The architecture is auto-detected from
@@ -1024,12 +1036,12 @@ export type HistoryUpdatePayload = { action: "added"; entry: HistoryEntry } | { 
 /**
  * Result of changing keyboard implementation
  */
-export type ImplementationChangeResult = { success: boolean; 
+export type ImplementationChangeResult = { success: boolean;
 /**
  * List of binding IDs that were reset to defaults due to incompatibility
  */
 reset_bindings: string[] }
-export type KeyboardDiagnosticReport = { secure_input_enabled: boolean; culprit_pid: number | null; culprit_name: string | null; 
+export type KeyboardDiagnosticReport = { secure_input_enabled: boolean; culprit_pid: number | null; culprit_name: string | null;
 /**
  * Counts only — key identity is deliberately never captured.
  */
@@ -1043,28 +1055,28 @@ export type ModelLoadStatus = { is_loaded: boolean; current_model: string | null
  * Where a model comes from and how Handy obtains it — the routing discriminant
  * for downloading and on-disk resolution.
  */
-export type ModelSource = 
+export type ModelSource =
 /**
  * Direct HTTP download from a URL (current blob.handy.computer hosting).
  */
-{ Url: { url: string; 
+{ Url: { url: string;
 /**
  * Expected SHA-256 for integrity verification; `None` skips it.
  */
-sha256: string | null } } | 
+sha256: string | null } } |
 /**
  * A file inside a Hugging Face Hub repo, fetched via hf-hub into the shared
  * HF cache (so other tools reuse it). The file within the repo is
  * [`ModelInfo::filename`].
  */
-{ HuggingFace: { repo_id: string; revision: string } } | 
+{ HuggingFace: { repo_id: string; revision: string } } |
 /**
  * Already present on disk — a user-provided custom model, or one discovered
  * in a shared cache. Nothing to download.
  */
 "Local"
 export type ModelUnloadTimeout = "never" | "immediately" | "min_2" | "min_5" | "min_10" | "min_15" | "hour_1" | "sec_15"
-export type OrtAcceleratorSetting = "auto" | "cpu" | "cuda" | "directml" | "rocm"
+export type OrtAcceleratorSetting = "auto" | "cpu" | "cuda" | "directml" | "rocm" | "coreml" | "coreml_neural_engine"
 export type OverlayPosition = "top" | "bottom"
 /**
  * Which recording overlay to display. `Minimal` and `Live` share one base
@@ -1079,32 +1091,32 @@ export type PermissionAccess = "allowed" | "denied" | "unknown"
 export type PostProcessProvider = { id: string; label: string; base_url: string; allow_base_url_edit?: boolean; models_endpoint?: string | null; supports_structured_output?: boolean }
 export type RecordingRetentionPeriod = "never" | "preserve_limit" | "days_3" | "weeks_2" | "months_3"
 export type SecretMap = Partial<{ [key in string]: string }>
-export type SecureInputStatus = { 
+export type SecureInputStatus = {
 /**
  * Secure input is currently enabled (live check)
  */
-enabled: boolean; 
+enabled: boolean;
 /**
  * Enabled continuously long enough to be considered stuck (not just a
  * password field gaining momentary focus)
  */
-sustained: boolean; culprit_pid: number | null; culprit_name: string | null; 
+sustained: boolean; culprit_pid: number | null; culprit_name: string | null;
 /**
  * Carbon fallback registrations are currently active
  */
-fallback_active: boolean; 
+fallback_active: boolean;
 /**
  * Binding ids shadow-registered with identical semantics
  */
-covered_bindings: string[]; 
+covered_bindings: string[];
 /**
  * Side-specific binding ids widened to match either side while shadowed
  */
-degraded_bindings: string[]; 
+degraded_bindings: string[];
 /**
  * Binding ids that cannot fire at all (e.g. fn+key, registration failure)
  */
-uncovered_bindings: string[]; 
+uncovered_bindings: string[];
 /**
  * The user tried to record a shortcut while secure input was active.
  * Treated as user impact even when every binding is covered, so the
@@ -1114,15 +1126,15 @@ recorder_blocked: boolean }
 /**
  * How the transcribe shortcut's key events drive a recording.
  */
-export type ShortcutActivation = 
+export type ShortcutActivation =
 /**
  * Press to start, press again to stop.
  */
-"toggle" | 
+"toggle" |
 /**
  * Hold to record, release to stop.
  */
-"push_to_talk" | 
+"push_to_talk" |
 /**
  * Hold to record and release to stop, or tap to keep recording until the
  * next press. Which one it was is decided by how long the key was held
@@ -1134,13 +1146,13 @@ export type SoundTheme = "marimba" | "pop" | "custom"
 /**
  * Phase of the streaming overlay card, emitted to drive its UI state.
  */
-export type StreamPhase = 
+export type StreamPhase =
 /**
  * Receiving audio / live text (or waiting for the stream to begin). Rust
  * does not emit this today; the frontend starts in this phase and Rust only
  * emits transitions away from it.
  */
-"listening" | 
+"listening" |
 /**
  * Finalizing or post-processing — show a spinner.
  */
@@ -1148,7 +1160,7 @@ export type StreamPhase =
 /**
  * Emitted to switch the streaming overlay to a working spinner.
  */
-export type StreamPhaseEvent = { phase: StreamPhase; 
+export type StreamPhaseEvent = { phase: StreamPhase;
 /**
  * Present only when `phase` is `Working`.
  */

@@ -1,0 +1,2185 @@
+{
+  "metadata": {
+    "chip": "Apple M5 Pro",
+    "memory_bytes": 25769803776,
+    "macos": "26.5.1",
+    "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+    "thermal_start": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "binary_sha256": "dbd1b85302cc06eb47b9dd195dfadf3e9577e32e669ac4a30d8f0581af44d5bb",
+    "original_binary_sha256": "0860a87e9c2be0d581e55d86141031587f1a560081273ea1354a89112b0b7ddc",
+    "source_audio_sha256": "59dfb9a4acb36fe2a2affc14bacbee2920ff435cb13cc314a08c13f66ba7860e",
+    "source_audio_url": "https://github.com/ggml-org/whisper.cpp/blob/master/samples/jfk.wav",
+    "preferences_before": {
+      "selected_model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+      "ort_accelerator": "auto",
+      "transcribe_accelerator": "auto",
+      "transcribe_gpu_device": null
+    },
+    "devices": "transcribe-cpp compute devices:\n  index=0 kind=metal name=Apple M5 Pro vram=18186MB\n  index=1 kind=cpu name=Apple M5 Pro vram=24576MB",
+    "method": "2 process trials per case; 1 first inference + 5 warm repeats per trial. Sequential, rotated case order. 11s JFK clip repeated 1/3/6 times. Existing Core ML cache retained for standard trials.",
+    "limitations": [
+      "Longer clips repeat the same speech; this is a latency smoke benchmark, not a diverse accuracy dataset.",
+      "Memory is maximum resident size of the main process, excluding WebKit child processes.",
+      "File transcription excludes microphone, VAD, clipboard/paste and UI latency.",
+      "Core ML compute-unit selection does not prove every operation runs on the Neural Engine.",
+      "No energy or hardware-occupancy measurement; ordinary background desktop activity remains.",
+      "Moonshine overgenerates speech at 55s on CPU and both Core ML modes; 55s timings include this decoding behavior. Parakeet produces the expected words."
+    ],
+    "preferences_after": {
+      "selected_model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+      "ort_accelerator": "auto",
+      "transcribe_accelerator": "auto",
+      "transcribe_gpu_device": null
+    },
+    "preferences_unchanged": true,
+    "battery_end": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t19%; charging; 3:39 remaining present: true",
+    "thermal_end": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "resumes": [
+      {
+        "battery": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 3:09 remaining present: true",
+        "multipliers": [
+          5
+        ]
+      }
+    ],
+    "complete": true,
+    "excluded_trials": "66s Moonshine attempts exceed its 64s input limit; retained as explicit failures, excluded from timing comparison. Initial battery batch superseded by this AC batch.",
+    "completed_comparison_audio_s": [
+      11,
+      33,
+      55
+    ]
+  },
+  "runs": [
+    {
+      "case": "moonshine_coreml_neural",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 228,
+        "bound_backend": "onnx",
+        "load_ms": 3268,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml_neural_engine",
+        "rtf": 48.24561403508772,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          879,
+          281,
+          228,
+          235,
+          233,
+          233
+        ]
+      },
+      "first_ms": 879,
+      "warm_ms": [
+        281,
+        228,
+        235,
+        233,
+        233
+      ],
+      "wall_s": 5.512565042357892,
+      "load_average": [
+        4.3798828125,
+        4.2607421875,
+        3.951171875
+      ],
+      "peak_main_process_rss_bytes": 1492697088,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "parakeet_cpu",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 316,
+        "bound_backend": "CPU",
+        "load_ms": 296,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 1",
+        "requested_ort_accelerator": null,
+        "rtf": 34.81012658227848,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "transcribe_ms": [
+          337,
+          316,
+          318,
+          317,
+          317,
+          341
+        ]
+      },
+      "first_ms": 337,
+      "warm_ms": [
+        316,
+        318,
+        317,
+        317,
+        341
+      ],
+      "wall_s": 2.398278625216335,
+      "load_average": [
+        4.3798828125,
+        4.2607421875,
+        3.951171875
+      ],
+      "peak_main_process_rss_bytes": 1313587200,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 61,
+        "bound_backend": "MTL0",
+        "load_ms": 173,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 180.32786885245903,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "transcribe_ms": [
+          126,
+          62,
+          61,
+          61,
+          62,
+          61
+        ]
+      },
+      "first_ms": 126,
+      "warm_ms": [
+        62,
+        61,
+        61,
+        62,
+        61
+      ],
+      "wall_s": 0.7337162499316037,
+      "load_average": [
+        4.66943359375,
+        4.32275390625,
+        3.974609375
+      ],
+      "peak_main_process_rss_bytes": 962232320,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal_original",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 65,
+        "bound_backend": "MTL0",
+        "load_ms": 426,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "rtf": 169.23076923076923,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "transcribe_ms": [
+          211,
+          66,
+          73,
+          66,
+          65,
+          66
+        ]
+      },
+      "first_ms": 211,
+      "warm_ms": [
+        66,
+        73,
+        66,
+        65,
+        66
+      ],
+      "wall_s": 15.639627208001912,
+      "load_average": [
+        4.25,
+        4.2421875,
+        3.951171875
+      ],
+      "peak_main_process_rss_bytes": 779665408,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "moonshine_cpu",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 158,
+        "bound_backend": "onnx",
+        "load_ms": 369,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "cpu",
+        "rtf": 69.62025316455696,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          195,
+          172,
+          158,
+          162,
+          172,
+          187
+        ]
+      },
+      "first_ms": 195,
+      "warm_ms": [
+        172,
+        158,
+        162,
+        172,
+        187
+      ],
+      "wall_s": 1.5773694589734077,
+      "load_average": [
+        4.25,
+        4.2421875,
+        3.951171875
+      ],
+      "peak_main_process_rss_bytes": 988856320,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "moonshine_coreml_all",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 233,
+        "bound_backend": "onnx",
+        "load_ms": 3262,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml",
+        "rtf": 47.21030042918455,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          1481,
+          321,
+          234,
+          239,
+          273,
+          233
+        ]
+      },
+      "first_ms": 1481,
+      "warm_ms": [
+        321,
+        234,
+        239,
+        273,
+        233
+      ],
+      "wall_s": 6.23057895898819,
+      "load_average": [
+        4.22998046875,
+        4.23779296875,
+        3.951171875
+      ],
+      "peak_main_process_rss_bytes": 1764065280,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "parakeet_cpu",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 316,
+        "bound_backend": "CPU",
+        "load_ms": 208,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 1",
+        "requested_ort_accelerator": null,
+        "rtf": 34.81012658227848,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "transcribe_ms": [
+          320,
+          316,
+          322,
+          317,
+          322,
+          322
+        ]
+      },
+      "first_ms": 320,
+      "warm_ms": [
+        316,
+        322,
+        317,
+        322,
+        322
+      ],
+      "wall_s": 2.2528225001879036,
+      "load_average": [
+        4.93212890625,
+        4.3828125,
+        4.00390625
+      ],
+      "peak_main_process_rss_bytes": 1312784384,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 62,
+        "bound_backend": "MTL0",
+        "load_ms": 177,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 177.41935483870967,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "transcribe_ms": [
+          88,
+          63,
+          62,
+          63,
+          62,
+          62
+        ]
+      },
+      "first_ms": 88,
+      "warm_ms": [
+        63,
+        62,
+        63,
+        62,
+        62
+      ],
+      "wall_s": 0.7023783340118825,
+      "load_average": [
+        4.93212890625,
+        4.3828125,
+        4.00390625
+      ],
+      "peak_main_process_rss_bytes": 962445312,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal_original",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 62,
+        "bound_backend": "MTL0",
+        "load_ms": 166,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "rtf": 177.41935483870967,
+        "text": "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+        "transcribe_ms": [
+          74,
+          62,
+          72,
+          66,
+          65,
+          64
+        ]
+      },
+      "first_ms": 74,
+      "warm_ms": [
+        62,
+        72,
+        66,
+        65,
+        64
+      ],
+      "wall_s": 0.6923202909529209,
+      "load_average": [
+        4.93212890625,
+        4.3828125,
+        4.00390625
+      ],
+      "peak_main_process_rss_bytes": 963903488,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "moonshine_cpu",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 153,
+        "bound_backend": "onnx",
+        "load_ms": 342,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "cpu",
+        "rtf": 71.89542483660131,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          213,
+          196,
+          166,
+          162,
+          161,
+          153
+        ]
+      },
+      "first_ms": 213,
+      "warm_ms": [
+        196,
+        166,
+        162,
+        161,
+        153
+      ],
+      "wall_s": 1.520787542220205,
+      "load_average": [
+        4.93212890625,
+        4.3828125,
+        4.00390625
+      ],
+      "peak_main_process_rss_bytes": 995803136,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "moonshine_coreml_all",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 228,
+        "bound_backend": "onnx",
+        "load_ms": 3276,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml",
+        "rtf": 48.24561403508772,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          1437,
+          275,
+          237,
+          228,
+          231,
+          238
+        ]
+      },
+      "first_ms": 1437,
+      "warm_ms": [
+        275,
+        237,
+        228,
+        231,
+        238
+      ],
+      "wall_s": 6.134163458831608,
+      "load_average": [
+        4.78857421875,
+        4.36962890625,
+        4.0029296875
+      ],
+      "peak_main_process_rss_bytes": 1854046208,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "moonshine_coreml_neural",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 223,
+        "bound_backend": "onnx",
+        "load_ms": 3188,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml_neural_engine",
+        "rtf": 49.327354260089685,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          876,
+          248,
+          226,
+          223,
+          225,
+          225
+        ]
+      },
+      "first_ms": 876,
+      "warm_ms": [
+        248,
+        226,
+        223,
+        225,
+        225
+      ],
+      "wall_s": 5.383138917386532,
+      "load_average": [
+        5.20556640625,
+        4.462890625,
+        4.03759765625
+      ],
+      "peak_main_process_rss_bytes": 1539211264,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "parakeet_metal",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 3,
+      "result": {
+        "audio_secs": 33.0,
+        "best_ms": 147,
+        "bound_backend": "MTL0",
+        "load_ms": 175,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 224.48979591836735,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          173,
+          152,
+          147,
+          147,
+          147,
+          161
+        ]
+      },
+      "first_ms": 173,
+      "warm_ms": [
+        152,
+        147,
+        147,
+        147,
+        161
+      ],
+      "wall_s": 1.2154386672191322,
+      "load_average": [
+        5.20556640625,
+        4.462890625,
+        4.03759765625
+      ],
+      "peak_main_process_rss_bytes": 972062720,
+      "word_errors": 0,
+      "reference_words": 66,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal_original",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 3,
+      "result": {
+        "audio_secs": 33.0,
+        "best_ms": 144,
+        "bound_backend": "MTL0",
+        "load_ms": 196,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "rtf": 229.16666666666669,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          171,
+          167,
+          150,
+          153,
+          147,
+          144
+        ]
+      },
+      "first_ms": 171,
+      "warm_ms": [
+        167,
+        150,
+        153,
+        147,
+        144
+      ],
+      "wall_s": 1.2868416672572494,
+      "load_average": [
+        5.20556640625,
+        4.462890625,
+        4.03759765625
+      ],
+      "peak_main_process_rss_bytes": 975257600,
+      "word_errors": 0,
+      "reference_words": 66,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "moonshine_cpu",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:29 remaining present: true",
+      "multiplier": 3,
+      "result": {
+        "audio_secs": 33.0,
+        "best_ms": 591,
+        "bound_backend": "onnx",
+        "load_ms": 342,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "cpu",
+        "rtf": 55.83756345177665,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          650,
+          623,
+          602,
+          591,
+          602,
+          597
+        ]
+      },
+      "first_ms": 650,
+      "warm_ms": [
+        623,
+        602,
+        591,
+        602,
+        597
+      ],
+      "wall_s": 4.152564832940698,
+      "load_average": [
+        5.34912109375,
+        4.5048828125,
+        4.0546875
+      ],
+      "peak_main_process_rss_bytes": 1436483584,
+      "word_errors": 0,
+      "reference_words": 66,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "moonshine_coreml_all",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:39 remaining present: true",
+      "multiplier": 3,
+      "result": {
+        "audio_secs": 33.0,
+        "best_ms": 851,
+        "bound_backend": "onnx",
+        "load_ms": 3475,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml",
+        "rtf": 38.77790834312574,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          2674,
+          1127,
+          2156,
+          1600,
+          851,
+          858
+        ]
+      },
+      "first_ms": 2674,
+      "warm_ms": [
+        1127,
+        2156,
+        1600,
+        851,
+        858
+      ],
+      "wall_s": 12.986563750077039,
+      "load_average": [
+        5.76318359375,
+        4.62841796875,
+        4.10595703125
+      ],
+      "peak_main_process_rss_bytes": 4344627200,
+      "word_errors": 0,
+      "reference_words": 66,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "moonshine_coreml_neural",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:39 remaining present: true",
+      "multiplier": 3,
+      "result": {
+        "audio_secs": 33.0,
+        "best_ms": 886,
+        "bound_backend": "onnx",
+        "load_ms": 2989,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml_neural_engine",
+        "rtf": 37.246049661399546,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          1661,
+          1008,
+          911,
+          893,
+          1238,
+          886
+        ]
+      },
+      "first_ms": 1661,
+      "warm_ms": [
+        1008,
+        911,
+        893,
+        1238,
+        886
+      ],
+      "wall_s": 9.773375957738608,
+      "load_average": [
+        5.94189453125,
+        4.68408203125,
+        4.12841796875
+      ],
+      "peak_main_process_rss_bytes": 3549347840,
+      "word_errors": 0,
+      "reference_words": 66,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "parakeet_cpu",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:39 remaining present: true",
+      "multiplier": 3,
+      "result": {
+        "audio_secs": 33.0,
+        "best_ms": 1299,
+        "bound_backend": "CPU",
+        "load_ms": 221,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 1",
+        "requested_ort_accelerator": null,
+        "rtf": 25.40415704387991,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          1299,
+          1383,
+          1389,
+          1353,
+          1356,
+          1334
+        ]
+      },
+      "first_ms": 1299,
+      "warm_ms": [
+        1383,
+        1389,
+        1353,
+        1356,
+        1334
+      ],
+      "wall_s": 8.46940075000748,
+      "load_average": [
+        6.1298828125,
+        4.7607421875,
+        4.16162109375
+      ],
+      "peak_main_process_rss_bytes": 1411383296,
+      "word_errors": 0,
+      "reference_words": 66,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal_original",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:39 remaining present: true",
+      "multiplier": 3,
+      "result": {
+        "audio_secs": 33.0,
+        "best_ms": 135,
+        "bound_backend": "MTL0",
+        "load_ms": 188,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "rtf": 244.44444444444443,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          186,
+          148,
+          141,
+          137,
+          135,
+          149
+        ]
+      },
+      "first_ms": 186,
+      "warm_ms": [
+        148,
+        141,
+        137,
+        135,
+        149
+      ],
+      "wall_s": 1.2650824999436736,
+      "load_average": [
+        6.1298828125,
+        4.7607421875,
+        4.16162109375
+      ],
+      "peak_main_process_rss_bytes": 973815808,
+      "word_errors": 0,
+      "reference_words": 66,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "moonshine_cpu",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:39 remaining present: true",
+      "multiplier": 3,
+      "result": {
+        "audio_secs": 33.0,
+        "best_ms": 558,
+        "bound_backend": "onnx",
+        "load_ms": 359,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "cpu",
+        "rtf": 59.13978494623655,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          649,
+          648,
+          634,
+          622,
+          559,
+          558
+        ]
+      },
+      "first_ms": 649,
+      "warm_ms": [
+        648,
+        634,
+        622,
+        559,
+        558
+      ],
+      "wall_s": 4.169345709029585,
+      "load_average": [
+        5.798828125,
+        4.71484375,
+        4.14892578125
+      ],
+      "peak_main_process_rss_bytes": 1430978560,
+      "word_errors": 0,
+      "reference_words": 66,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "moonshine_coreml_all",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:39 remaining present: true",
+      "multiplier": 3,
+      "result": {
+        "audio_secs": 33.0,
+        "best_ms": 882,
+        "bound_backend": "onnx",
+        "load_ms": 3499,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml",
+        "rtf": 37.414965986394556,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          2564,
+          1177,
+          882,
+          943,
+          1115,
+          1219
+        ]
+      },
+      "first_ms": 2564,
+      "warm_ms": [
+        1177,
+        882,
+        943,
+        1115,
+        1219
+      ],
+      "wall_s": 11.697966082952917,
+      "load_average": [
+        5.97265625,
+        4.7958984375,
+        4.18701171875
+      ],
+      "peak_main_process_rss_bytes": 4317167616,
+      "word_errors": 0,
+      "reference_words": 66,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "moonshine_coreml_neural",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:39 remaining present: true",
+      "multiplier": 3,
+      "result": {
+        "audio_secs": 33.0,
+        "best_ms": 832,
+        "bound_backend": "onnx",
+        "load_ms": 2956,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml_neural_engine",
+        "rtf": 39.66346153846154,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          1557,
+          841,
+          864,
+          864,
+          900,
+          832
+        ]
+      },
+      "first_ms": 1557,
+      "warm_ms": [
+        841,
+        864,
+        864,
+        900,
+        832
+      ],
+      "wall_s": 9.003969832789153,
+      "load_average": [
+        6.134765625,
+        4.8486328125,
+        4.208984375
+      ],
+      "peak_main_process_rss_bytes": 3554934784,
+      "word_errors": 0,
+      "reference_words": 66,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "parakeet_cpu",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:39 remaining present: true",
+      "multiplier": 3,
+      "result": {
+        "audio_secs": 33.0,
+        "best_ms": 1266,
+        "bound_backend": "CPU",
+        "load_ms": 213,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 1",
+        "requested_ort_accelerator": null,
+        "rtf": 26.066350710900473,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          1272,
+          1266,
+          1285,
+          1302,
+          1374,
+          1381
+        ]
+      },
+      "first_ms": 1272,
+      "warm_ms": [
+        1266,
+        1285,
+        1302,
+        1374,
+        1381
+      ],
+      "wall_s": 8.222901708912104,
+      "load_average": [
+        6.72216796875,
+        5.017578125,
+        4.2763671875
+      ],
+      "peak_main_process_rss_bytes": 1410465792,
+      "word_errors": 0,
+      "reference_words": 66,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:49 remaining present: true",
+      "multiplier": 3,
+      "result": {
+        "audio_secs": 33.0,
+        "best_ms": 137,
+        "bound_backend": "MTL0",
+        "load_ms": 188,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 240.8759124087591,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          200,
+          137,
+          168,
+          175,
+          147,
+          196
+        ]
+      },
+      "first_ms": 200,
+      "warm_ms": [
+        137,
+        168,
+        175,
+        147,
+        196
+      ],
+      "wall_s": 1.3476927503943443,
+      "load_average": [
+        6.72216796875,
+        5.017578125,
+        4.2763671875
+      ],
+      "peak_main_process_rss_bytes": 974798848,
+      "word_errors": 0,
+      "reference_words": 66,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_cpu",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "multiplier": 6,
+      "result": {
+        "audio_secs": 66.0,
+        "best_ms": 2399,
+        "bound_backend": "CPU",
+        "load_ms": 193,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 1",
+        "requested_ort_accelerator": null,
+        "rtf": 27.511463109629013,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          2399,
+          2429,
+          2443,
+          2473,
+          2474,
+          2498
+        ]
+      },
+      "first_ms": 2399,
+      "warm_ms": [
+        2429,
+        2443,
+        2473,
+        2474,
+        2498
+      ],
+      "wall_s": 15.024226165842265,
+      "load_average": [
+        6.53564453125,
+        5.08935546875,
+        4.32470703125
+      ],
+      "peak_main_process_rss_bytes": 1575256064,
+      "word_errors": 0,
+      "reference_words": 132,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "multiplier": 6,
+      "result": {
+        "audio_secs": 66.0,
+        "best_ms": 282,
+        "bound_backend": "MTL0",
+        "load_ms": 159,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 234.0425531914894,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          309,
+          286,
+          282,
+          293,
+          291,
+          298
+        ]
+      },
+      "first_ms": 309,
+      "warm_ms": [
+        286,
+        282,
+        293,
+        291,
+        298
+      ],
+      "wall_s": 2.033864500001073,
+      "load_average": [
+        6.53564453125,
+        5.08935546875,
+        4.32470703125
+      ],
+      "peak_main_process_rss_bytes": 1010810880,
+      "word_errors": 0,
+      "reference_words": 132,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal_original",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "multiplier": 6,
+      "result": {
+        "audio_secs": 66.0,
+        "best_ms": 284,
+        "bound_backend": "MTL0",
+        "load_ms": 162,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "rtf": 232.39436619718313,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          305,
+          284,
+          304,
+          297,
+          285,
+          292
+        ]
+      },
+      "first_ms": 305,
+      "warm_ms": [
+        284,
+        304,
+        297,
+        285,
+        292
+      ],
+      "wall_s": 2.078177500050515,
+      "load_average": [
+        6.73291015625,
+        5.15380859375,
+        4.35205078125
+      ],
+      "peak_main_process_rss_bytes": 1011236864,
+      "word_errors": 0,
+      "reference_words": 132,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_cpu",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "multiplier": 6,
+      "result": {
+        "audio_secs": 66.0,
+        "best_ms": 2489,
+        "bound_backend": "CPU",
+        "load_ms": 192,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 1",
+        "requested_ort_accelerator": null,
+        "rtf": 26.516673362796304,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          2489,
+          2519,
+          2547,
+          2560,
+          2566,
+          2578
+        ]
+      },
+      "first_ms": 2489,
+      "warm_ms": [
+        2519,
+        2547,
+        2560,
+        2566,
+        2578
+      ],
+      "wall_s": 15.583135375287384,
+      "load_average": [
+        7.36474609375,
+        5.388671875,
+        4.45361328125
+      ],
+      "peak_main_process_rss_bytes": 1574764544,
+      "word_errors": 0,
+      "reference_words": 132,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "multiplier": 6,
+      "result": {
+        "audio_secs": 66.0,
+        "best_ms": 284,
+        "bound_backend": "MTL0",
+        "load_ms": 156,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 232.39436619718313,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          313,
+          288,
+          284,
+          287,
+          289,
+          284
+        ]
+      },
+      "first_ms": 313,
+      "warm_ms": [
+        288,
+        284,
+        287,
+        289,
+        284
+      ],
+      "wall_s": 2.0223688753321767,
+      "load_average": [
+        7.25537109375,
+        5.3984375,
+        4.46240234375
+      ],
+      "peak_main_process_rss_bytes": 1010794496,
+      "word_errors": 0,
+      "reference_words": 132,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal_original",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "multiplier": 6,
+      "result": {
+        "audio_secs": 66.0,
+        "best_ms": 285,
+        "bound_backend": "MTL0",
+        "load_ms": 168,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "rtf": 231.57894736842107,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          317,
+          290,
+          348,
+          307,
+          287,
+          285
+        ]
+      },
+      "first_ms": 317,
+      "warm_ms": [
+        290,
+        348,
+        307,
+        287,
+        285
+      ],
+      "wall_s": 2.1523179160431027,
+      "load_average": [
+        7.25537109375,
+        5.3984375,
+        4.46240234375
+      ],
+      "peak_main_process_rss_bytes": 1010597888,
+      "word_errors": 0,
+      "reference_words": 132,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "moonshine_coreml_all",
+      "phase": "fresh_cache",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 226,
+        "bound_backend": "onnx",
+        "load_ms": 4365,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml",
+        "rtf": 48.67256637168141,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          1501,
+          251,
+          226,
+          246,
+          235,
+          228
+        ]
+      },
+      "first_ms": 1501,
+      "warm_ms": [
+        251,
+        226,
+        246,
+        235,
+        228
+      ],
+      "wall_s": 7.251568417064846,
+      "load_average": [
+        6.6201171875,
+        5.34619140625,
+        4.45947265625
+      ],
+      "peak_main_process_rss_bytes": 1887895552,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "moonshine_coreml_neural",
+      "phase": "fresh_cache",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 3:09 remaining present: true",
+      "multiplier": 1,
+      "result": {
+        "audio_secs": 11.0,
+        "best_ms": 209,
+        "bound_backend": "onnx",
+        "load_ms": 3893,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml_neural_engine",
+        "rtf": 52.631578947368425,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country",
+        "transcribe_ms": [
+          727,
+          220,
+          209,
+          210,
+          213,
+          213
+        ]
+      },
+      "first_ms": 727,
+      "warm_ms": [
+        220,
+        209,
+        210,
+        213,
+        213
+      ],
+      "wall_s": 5.815516917034984,
+      "load_average": [
+        6.169921875,
+        5.27392578125,
+        4.43896484375
+      ],
+      "peak_main_process_rss_bytes": 1544126464,
+      "word_errors": 0,
+      "reference_words": 22,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "moonshine_cpu",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 3:09 remaining present: true",
+      "multiplier": 5,
+      "result": {
+        "audio_secs": 55.0,
+        "best_ms": 2753,
+        "bound_backend": "onnx",
+        "load_ms": 323,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "cpu",
+        "rtf": 19.978205593897567,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask not what your country can do for",
+        "transcribe_ms": [
+          2903,
+          2795,
+          2758,
+          2761,
+          2768,
+          2753
+        ]
+      },
+      "first_ms": 2903,
+      "warm_ms": [
+        2795,
+        2758,
+        2761,
+        2768,
+        2753
+      ],
+      "wall_s": 17.196377916727215,
+      "load_average": [
+        5.42529296875,
+        5.169921875,
+        4.4248046875
+      ],
+      "peak_main_process_rss_bytes": 2215952384,
+      "word_errors": 220,
+      "reference_words": 110,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "moonshine_coreml_all",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 3:09 remaining present: true",
+      "multiplier": 5,
+      "result": {
+        "audio_secs": 55.0,
+        "best_ms": 3324,
+        "bound_backend": "onnx",
+        "load_ms": 2932,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml",
+        "rtf": 16.546329723225032,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask not what your country can do for",
+        "transcribe_ms": [
+          5473,
+          3791,
+          3393,
+          3324,
+          3597,
+          3476
+        ]
+      },
+      "first_ms": 5473,
+      "warm_ms": [
+        3791,
+        3393,
+        3324,
+        3597,
+        3476
+      ],
+      "wall_s": 26.26819150010124,
+      "load_average": [
+        5.82275390625,
+        5.2685546875,
+        4.4833984375
+      ],
+      "peak_main_process_rss_bytes": 8000913408,
+      "word_errors": 220,
+      "reference_words": 110,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "moonshine_coreml_neural",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t19%; charging; 3:19 remaining present: true",
+      "multiplier": 5,
+      "result": {
+        "audio_secs": 55.0,
+        "best_ms": 3288,
+        "bound_backend": "onnx",
+        "load_ms": 2777,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml_neural_engine",
+        "rtf": 16.72749391727494,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask not what your country can do for",
+        "transcribe_ms": [
+          4142,
+          3309,
+          3296,
+          3288,
+          3294,
+          3289
+        ]
+      },
+      "first_ms": 4142,
+      "warm_ms": [
+        3309,
+        3296,
+        3288,
+        3294,
+        3289
+      ],
+      "wall_s": 23.569803499616683,
+      "load_average": [
+        5.34765625,
+        5.2001953125,
+        4.4775390625
+      ],
+      "peak_main_process_rss_bytes": 6642548736,
+      "word_errors": 220,
+      "reference_words": 110,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "parakeet_cpu",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t19%; charging; 3:19 remaining present: true",
+      "multiplier": 5,
+      "result": {
+        "audio_secs": 55.0,
+        "best_ms": 1922,
+        "bound_backend": "CPU",
+        "load_ms": 198,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 1",
+        "requested_ort_accelerator": null,
+        "rtf": 28.616024973985432,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          1922,
+          1961,
+          1968,
+          1971,
+          1990,
+          1984
+        ]
+      },
+      "first_ms": 1922,
+      "warm_ms": [
+        1961,
+        1968,
+        1971,
+        1990,
+        1984
+      ],
+      "wall_s": 12.116851500235498,
+      "load_average": [
+        5.9345703125,
+        5.3369140625,
+        4.53857421875
+      ],
+      "peak_main_process_rss_bytes": 1523236864,
+      "word_errors": 0,
+      "reference_words": 110,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t19%; charging; 3:19 remaining present: true",
+      "multiplier": 5,
+      "result": {
+        "audio_secs": 55.0,
+        "best_ms": 218,
+        "bound_backend": "MTL0",
+        "load_ms": 149,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 252.29357798165137,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          244,
+          223,
+          218,
+          228,
+          221,
+          221
+        ]
+      },
+      "first_ms": 244,
+      "warm_ms": [
+        223,
+        218,
+        228,
+        221,
+        221
+      ],
+      "wall_s": 1.6286333329044282,
+      "load_average": [
+        5.9345703125,
+        5.3369140625,
+        4.53857421875
+      ],
+      "peak_main_process_rss_bytes": 1004552192,
+      "word_errors": 0,
+      "reference_words": 110,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal_original",
+      "phase": "cached",
+      "trial": 1,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t19%; charging; 3:19 remaining present: true",
+      "multiplier": 5,
+      "result": {
+        "audio_secs": 55.0,
+        "best_ms": 219,
+        "bound_backend": "MTL0",
+        "load_ms": 152,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "rtf": 251.1415525114155,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          248,
+          221,
+          219,
+          222,
+          220,
+          222
+        ]
+      },
+      "first_ms": 248,
+      "warm_ms": [
+        221,
+        219,
+        222,
+        220,
+        222
+      ],
+      "wall_s": 1.654740832746029,
+      "load_average": [
+        5.9345703125,
+        5.3369140625,
+        4.53857421875
+      ],
+      "peak_main_process_rss_bytes": 1005027328,
+      "word_errors": 0,
+      "reference_words": 110,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "moonshine_coreml_all",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t19%; charging; 3:19 remaining present: true",
+      "multiplier": 5,
+      "result": {
+        "audio_secs": 55.0,
+        "best_ms": 3321,
+        "bound_backend": "onnx",
+        "load_ms": 2956,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml",
+        "rtf": 16.56127672387835,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask not what your country can do for",
+        "transcribe_ms": [
+          5433,
+          4277,
+          3348,
+          3339,
+          3545,
+          3321
+        ]
+      },
+      "first_ms": 5433,
+      "warm_ms": [
+        4277,
+        3348,
+        3339,
+        3545,
+        3321
+      ],
+      "wall_s": 26.484311874955893,
+      "load_average": [
+        6.81787109375,
+        5.58056640625,
+        4.65185546875
+      ],
+      "peak_main_process_rss_bytes": 7962050560,
+      "word_errors": 220,
+      "reference_words": 110,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "moonshine_coreml_neural",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t19%; charging; 3:29 remaining present: true",
+      "multiplier": 5,
+      "result": {
+        "audio_secs": 55.0,
+        "best_ms": 3304,
+        "bound_backend": "onnx",
+        "load_ms": 2768,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "coreml_neural_engine",
+        "rtf": 16.646489104116224,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask not what your country can do for",
+        "transcribe_ms": [
+          4151,
+          3315,
+          3322,
+          3348,
+          3304,
+          3306
+        ]
+      },
+      "first_ms": 4151,
+      "warm_ms": [
+        3315,
+        3322,
+        3348,
+        3304,
+        3306
+      ],
+      "wall_s": 23.689894165843725,
+      "load_average": [
+        6.3408203125,
+        5.556640625,
+        4.66455078125
+      ],
+      "peak_main_process_rss_bytes": 6668451840,
+      "word_errors": 220,
+      "reference_words": 110,
+      "unbounded_shape_warnings": 57
+    },
+    {
+      "case": "parakeet_cpu",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t19%; charging; 3:29 remaining present: true",
+      "multiplier": 5,
+      "result": {
+        "audio_secs": 55.0,
+        "best_ms": 1966,
+        "bound_backend": "CPU",
+        "load_ms": 197,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 1",
+        "requested_ort_accelerator": null,
+        "rtf": 27.97558494404883,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          1966,
+          1979,
+          2005,
+          1998,
+          2018,
+          2026
+        ]
+      },
+      "first_ms": 1966,
+      "warm_ms": [
+        1979,
+        2005,
+        1998,
+        2018,
+        2026
+      ],
+      "wall_s": 12.31069179205224,
+      "load_average": [
+        6.7880859375,
+        5.6923828125,
+        4.72802734375
+      ],
+      "peak_main_process_rss_bytes": 1521401856,
+      "word_errors": 0,
+      "reference_words": 110,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t19%; charging; 3:29 remaining present: true",
+      "multiplier": 5,
+      "result": {
+        "audio_secs": 55.0,
+        "best_ms": 220,
+        "bound_backend": "MTL0",
+        "load_ms": 148,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "requested_ort_accelerator": null,
+        "rtf": 250.0,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          255,
+          220,
+          223,
+          229,
+          223,
+          221
+        ]
+      },
+      "first_ms": 255,
+      "warm_ms": [
+        220,
+        223,
+        229,
+        223,
+        221
+      ],
+      "wall_s": 1.640487208031118,
+      "load_average": [
+        6.7880859375,
+        5.6923828125,
+        4.72802734375
+      ],
+      "peak_main_process_rss_bytes": 1005436928,
+      "word_errors": 0,
+      "reference_words": 110,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "parakeet_metal_original",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t19%; charging; 3:29 remaining present: true",
+      "multiplier": 5,
+      "result": {
+        "audio_secs": 55.0,
+        "best_ms": 220,
+        "bound_backend": "MTL0",
+        "load_ms": 151,
+        "model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+        "requested_device": "index 0",
+        "rtf": 250.0,
+        "text": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country. And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+        "transcribe_ms": [
+          244,
+          224,
+          222,
+          225,
+          223,
+          220
+        ]
+      },
+      "first_ms": 244,
+      "warm_ms": [
+        224,
+        222,
+        225,
+        223,
+        220
+      ],
+      "wall_s": 1.6559043331071734,
+      "load_average": [
+        6.884765625,
+        5.73046875,
+        4.7470703125
+      ],
+      "peak_main_process_rss_bytes": 1004519424,
+      "word_errors": 0,
+      "reference_words": 110,
+      "unbounded_shape_warnings": 0
+    },
+    {
+      "case": "moonshine_cpu",
+      "phase": "cached",
+      "trial": 2,
+      "attempt": 1,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t19%; charging; 3:29 remaining present: true",
+      "multiplier": 5,
+      "result": {
+        "audio_secs": 55.0,
+        "best_ms": 2761,
+        "bound_backend": "onnx",
+        "load_ms": 313,
+        "model": "moonshine-base",
+        "requested_device": "settings",
+        "requested_ort_accelerator": "cpu",
+        "rtf": 19.9203187250996,
+        "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask what you can do for your country and so my fellow Americans ask not what your country can do for you ask not what your country can do for",
+        "transcribe_ms": [
+          2878,
+          2827,
+          2786,
+          2785,
+          2813,
+          2761
+        ]
+      },
+      "first_ms": 2878,
+      "warm_ms": [
+        2827,
+        2786,
+        2785,
+        2813,
+        2761
+      ],
+      "wall_s": 17.298518042080104,
+      "load_average": [
+        6.10302734375,
+        5.61279296875,
+        4.72216796875
+      ],
+      "peak_main_process_rss_bytes": 2211201024,
+      "word_errors": 220,
+      "reference_words": 110,
+      "unbounded_shape_warnings": 0
+    }
+  ],
+  "failures": [
+    {
+      "case": "moonshine_coreml_all",
+      "phase": "cached",
+      "trial": 1,
+      "multiplier": 6,
+      "attempt": 1,
+      "error": "Exit code 1",
+      "returncode": 1,
+      "wall_s": 3.1913412921130657,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:49 remaining present: true",
+      "raw_stem": "cached-moonshine_coreml_all-6x-trial1-attempt1",
+      "diagnostic": "error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s"
+    },
+    {
+      "case": "moonshine_coreml_all",
+      "phase": "cached",
+      "trial": 1,
+      "multiplier": 6,
+      "attempt": 2,
+      "error": "Exit code 1",
+      "returncode": 1,
+      "wall_s": 3.1978448340669274,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:49 remaining present: true",
+      "raw_stem": "cached-moonshine_coreml_all-6x-trial1-attempt2",
+      "diagnostic": "error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s"
+    },
+    {
+      "case": "moonshine_coreml_neural",
+      "phase": "cached",
+      "trial": 1,
+      "multiplier": 6,
+      "attempt": 1,
+      "error": "Exit code 1",
+      "returncode": 1,
+      "wall_s": 2.926135624758899,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t17%; charging; 2:49 remaining present: true",
+      "raw_stem": "cached-moonshine_coreml_neural-6x-trial1-attempt1",
+      "diagnostic": "error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s"
+    },
+    {
+      "case": "moonshine_coreml_neural",
+      "phase": "cached",
+      "trial": 1,
+      "multiplier": 6,
+      "attempt": 2,
+      "error": "Exit code 1",
+      "returncode": 1,
+      "wall_s": 2.9296685829758644,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "raw_stem": "cached-moonshine_coreml_neural-6x-trial1-attempt2",
+      "diagnostic": "error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s"
+    },
+    {
+      "case": "moonshine_cpu",
+      "phase": "cached",
+      "trial": 1,
+      "multiplier": 6,
+      "attempt": 1,
+      "error": "Exit code 1",
+      "returncode": 1,
+      "wall_s": 0.4408864579163492,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "raw_stem": "cached-moonshine_cpu-6x-trial1-attempt1",
+      "diagnostic": "error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s"
+    },
+    {
+      "case": "moonshine_cpu",
+      "phase": "cached",
+      "trial": 1,
+      "multiplier": 6,
+      "attempt": 2,
+      "error": "Exit code 1",
+      "returncode": 1,
+      "wall_s": 0.43670349987223744,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "raw_stem": "cached-moonshine_cpu-6x-trial1-attempt2",
+      "diagnostic": "error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s"
+    },
+    {
+      "case": "moonshine_coreml_neural",
+      "phase": "cached",
+      "trial": 2,
+      "multiplier": 6,
+      "attempt": 1,
+      "error": "Exit code 1",
+      "returncode": 1,
+      "wall_s": 2.9344128747470677,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "raw_stem": "cached-moonshine_coreml_neural-6x-trial2-attempt1",
+      "diagnostic": "error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s"
+    },
+    {
+      "case": "moonshine_coreml_neural",
+      "phase": "cached",
+      "trial": 2,
+      "multiplier": 6,
+      "attempt": 2,
+      "error": "Exit code 1",
+      "returncode": 1,
+      "wall_s": 3.0536937080323696,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "raw_stem": "cached-moonshine_coreml_neural-6x-trial2-attempt2",
+      "diagnostic": "error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s"
+    },
+    {
+      "case": "moonshine_cpu",
+      "phase": "cached",
+      "trial": 2,
+      "multiplier": 6,
+      "attempt": 1,
+      "error": "Exit code 1",
+      "returncode": 1,
+      "wall_s": 0.44764708261936903,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "raw_stem": "cached-moonshine_cpu-6x-trial2-attempt1",
+      "diagnostic": "error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s"
+    },
+    {
+      "case": "moonshine_cpu",
+      "phase": "cached",
+      "trial": 2,
+      "multiplier": 6,
+      "attempt": 2,
+      "error": "Exit code 1",
+      "returncode": 1,
+      "wall_s": 0.4635000419802964,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "raw_stem": "cached-moonshine_cpu-6x-trial2-attempt2",
+      "diagnostic": "error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s"
+    },
+    {
+      "case": "moonshine_coreml_all",
+      "phase": "cached",
+      "trial": 2,
+      "multiplier": 6,
+      "attempt": 1,
+      "error": "Exit code 1",
+      "returncode": 1,
+      "wall_s": 3.301139249932021,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "raw_stem": "cached-moonshine_coreml_all-6x-trial2-attempt1",
+      "diagnostic": "error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s"
+    },
+    {
+      "case": "moonshine_coreml_all",
+      "phase": "cached",
+      "trial": 2,
+      "multiplier": 6,
+      "attempt": 2,
+      "error": "Exit code 1",
+      "returncode": 1,
+      "wall_s": 3.2120387088507414,
+      "battery_start": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t18%; charging; 2:59 remaining present: true",
+      "raw_stem": "cached-moonshine_coreml_all-6x-trial2-attempt2",
+      "diagnostic": "error: transcribe failed: Moonshine transcription failed: inference error: Audio duration must be between 0.1s and 64s, got 66.00s"
+    }
+  ]
+}

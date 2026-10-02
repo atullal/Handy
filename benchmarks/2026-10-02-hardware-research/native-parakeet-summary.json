@@ -1,0 +1,241 @@
+{
+  "date": "2026-10-02",
+  "chip": "Apple M5 Pro",
+  "memory_bytes": 25769803776,
+  "macos": "26.5.1",
+  "fluid_audio_commit": "0b1f46289fe27d95b5e66ad8be46e64f5ee02ae7",
+  "model_download_manifest": "parakeet-coreml-download.json",
+  "audio_sha256": "59dfb9a4acb36fe2a2affc14bacbee2920ff435cb13cc314a08c13f66ba7860e",
+  "audio_s": [
+    11,
+    33,
+    55
+  ],
+  "warm_samples_per_route": 10,
+  "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t42%; charging; 2:01 remaining present: true\n",
+  "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+  "summaries": [
+    {
+      "route": "native_coreml",
+      "encoder_precision": "int8",
+      "encoder_units": "cpu",
+      "decoder_units": "cpu",
+      "warm_median_ms": 117.762271,
+      "warm_min_ms": 116.786291,
+      "warm_max_ms": 119.04575,
+      "load_ms_by_trial": [
+        1546.971875,
+        100.567208
+      ],
+      "peak_main_process_gib": 1.729583740234375,
+      "transcript_words_match": true,
+      "audio_s": 11
+    },
+    {
+      "route": "native_coreml",
+      "encoder_precision": "int8",
+      "encoder_units": "neural",
+      "decoder_units": "cpu",
+      "warm_median_ms": 55.900729,
+      "warm_min_ms": 55.303375,
+      "warm_max_ms": 56.509708,
+      "load_ms_by_trial": [
+        8875.244667,
+        167.724417
+      ],
+      "peak_main_process_gib": 0.631439208984375,
+      "transcript_words_match": true,
+      "audio_s": 11
+    },
+    {
+      "route": "native_coreml",
+      "encoder_precision": "fp16",
+      "encoder_units": "neural",
+      "decoder_units": "cpu",
+      "warm_median_ms": 55.825021,
+      "warm_min_ms": 54.751417,
+      "warm_max_ms": 57.400459,
+      "load_ms_by_trial": [
+        14828.120708,
+        233.967
+      ],
+      "peak_main_process_gib": 1.1622467041015625,
+      "transcript_words_match": true,
+      "audio_s": 11
+    },
+    {
+      "route": "native_coreml",
+      "encoder_precision": "fp16",
+      "encoder_units": "gpu",
+      "decoder_units": "cpu",
+      "warm_median_ms": 48.205125,
+      "warm_min_ms": 45.57825,
+      "warm_max_ms": 51.373416,
+      "load_ms_by_trial": [
+        6009.43725,
+        2591.813167
+      ],
+      "peak_main_process_gib": 2.284576416015625,
+      "transcript_words_match": true,
+      "audio_s": 11
+    },
+    {
+      "route": "native_coreml",
+      "encoder_precision": "fp16",
+      "encoder_units": "all",
+      "decoder_units": "cpu",
+      "warm_median_ms": 47.2511875,
+      "warm_min_ms": 45.98125,
+      "warm_max_ms": 49.10725,
+      "load_ms_by_trial": [
+        4458.219917,
+        279.000791
+      ],
+      "peak_main_process_gib": 2.290374755859375,
+      "transcript_words_match": true,
+      "audio_s": 11
+    },
+    {
+      "route": "handy_gguf_metal",
+      "encoder_precision": "Q8_0",
+      "warm_median_ms": 68.5,
+      "warm_min_ms": 66,
+      "warm_max_ms": 204,
+      "load_ms_by_trial": [
+        305,
+        172
+      ],
+      "peak_main_process_gib": 0.8998870849609375,
+      "transcript_words_match": true,
+      "audio_s": 11
+    },
+    {
+      "route": "native_coreml",
+      "encoder_precision": "int8",
+      "encoder_units": "neural",
+      "audio_s": 33,
+      "warm_median_ms": 172.423396,
+      "warm_min_ms": 170.866125,
+      "warm_max_ms": 176.363709,
+      "load_ms_by_trial": [
+        13255.176167,
+        183.515917
+      ],
+      "peak_main_process_gib": 0.632904052734375,
+      "transcript_words_match": true
+    },
+    {
+      "route": "native_coreml",
+      "encoder_precision": "fp16",
+      "encoder_units": "all",
+      "audio_s": 33,
+      "warm_median_ms": 144.67362500000002,
+      "warm_min_ms": 143.120042,
+      "warm_max_ms": 146.059917,
+      "load_ms_by_trial": [
+        4670.711125,
+        259.695375
+      ],
+      "peak_main_process_gib": 2.2899627685546875,
+      "transcript_words_match": true
+    },
+    {
+      "route": "handy_gguf_metal",
+      "encoder_precision": "Q8_0",
+      "encoder_units": "metal",
+      "audio_s": 33,
+      "warm_median_ms": 161.5,
+      "warm_min_ms": 155,
+      "warm_max_ms": 209,
+      "load_ms_by_trial": [
+        233,
+        175
+      ],
+      "peak_main_process_gib": 0.90948486328125,
+      "transcript_words_match": true
+    },
+    {
+      "route": "native_coreml",
+      "encoder_precision": "int8",
+      "encoder_units": "neural",
+      "audio_s": 55,
+      "warm_median_ms": 291.9465415,
+      "warm_min_ms": 288.305292,
+      "warm_max_ms": 308.210916,
+      "load_ms_by_trial": [
+        160.648333,
+        145.480875
+      ],
+      "peak_main_process_gib": 0.0719146728515625,
+      "transcript_words_match": true
+    },
+    {
+      "route": "native_coreml",
+      "encoder_precision": "fp16",
+      "encoder_units": "all",
+      "audio_s": 55,
+      "warm_median_ms": 248.12841650000001,
+      "warm_min_ms": 242.984292,
+      "warm_max_ms": 330.889125,
+      "load_ms_by_trial": [
+        259.161917,
+        255.845833
+      ],
+      "peak_main_process_gib": 2.25250244140625,
+      "transcript_words_match": true
+    },
+    {
+      "route": "handy_gguf_metal",
+      "encoder_precision": "Q8_0",
+      "encoder_units": "metal",
+      "audio_s": 55,
+      "warm_median_ms": 266.5,
+      "warm_min_ms": 261,
+      "warm_max_ms": 284,
+      "load_ms_by_trial": [
+        168,
+        170
+      ],
+      "peak_main_process_gib": 0.9405059814453125,
+      "transcript_words_match": true
+    }
+  ],
+  "limitations": [
+    "One public speech clip, repeated for 33s and 55s; not a diverse accuracy evaluation.",
+    "Same NVIDIA parent checkpoint, but different export/precision/decoder implementations; route comparison is not a pure hardware comparison.",
+    "CPU versus ANE within native INT8 uses the same encoder export.",
+    "Each trial is a new process; compilation/system caches may persist, so first-process loading is not a controlled cold-cache comparison.",
+    "MLComputePlan reports predicted assignment, not actual device occupancy or energy.",
+    "File inference excludes recording/VAD, UI/paste and IPC.",
+    "Memory is peak main-process RSS; external services may allocate additional memory.",
+    "Ordinary desktop activity remains. Prior-session Metal timings differ; modest gains on longer clips need confirmation in a controlled real-audio benchmark."
+  ],
+  "recommendation": {
+    "current_default": "Retain GGUF Metal pending diverse quality, latency and energy validation.",
+    "native_speed_candidate": "FP16 encoder with all compute units (GPU preferred in local plan), CPU decoder/joint.",
+    "native_gpu_contention_candidate": "INT8 CPUAndNeuralEngine encoder, CPU decoder/joint; lower measured main-process RSS, energy unmeasured.",
+    "lifetime": "Choose placement at model load, keep one persistent active engine, reuse models/cache.",
+    "prototype_integrated_into_handy": false,
+    "installed_app_changed_during_research": false
+  },
+  "verification": {
+    "release_probe_build": "passed",
+    "compute_plan_inspector_compile": "passed",
+    "int8_gpu_rejection": "exit 1 with documented model incompatibility",
+    "missing_inspector_model": "exit 1",
+    "post_build_real_audio_smoke": "valid JSON, six transcripts",
+    "download_checksums_verified": 18,
+    "swift_format": "passed",
+    "public_preferences_at_finish": {
+      "selected_model": "handy-computer/parakeet-unified-en-0.6b-gguf/parakeet-unified-en-0.6b-Q8_0.gguf",
+      "ort_accelerator": "auto",
+      "transcribe_accelerator": "auto",
+      "transcribe_gpu_device": null,
+      "model_unload_timeout": "min5",
+      "vad_enabled": true,
+      "vad_backend": "silero"
+    },
+    "public_preferences_match_before_research": true,
+    "post_build_compute_plan": "valid JSON, one encoder, no errors, 1400 ANE / 28 CPU preferred operations"
+  }
+}

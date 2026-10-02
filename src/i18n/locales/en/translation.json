@@ -277,14 +277,31 @@
       "acceleration": {
         "transcribe": {
           "title": "transcribe.cpp Acceleration",
-          "description": "Hardware acceleration for transcribe.cpp (Whisper-family) models. Auto uses GPU if available (Metal on macOS, Vulkan on Windows/Linux)."
+          "description": "Hardware acceleration for GGUF models, including Whisper and Parakeet. Auto uses GPU if available (Metal on macOS, Vulkan on Windows/Linux)."
         },
         "ort": {
           "title": "ONNX Acceleration",
-          "description": "Hardware acceleration for ONNX models (Parakeet, Canary, Moonshine, etc.). DirectML on Windows is experimental. Models may fail to transcribe."
+          "description": "Applies only to ONNX models. Core ML can use Apple’s GPU and Neural Engine; Neural Engine + CPU keeps the GPU free. Unsupported operations may use CPU. Performance depends on the model; GGUF models use the acceleration setting above. Core ML and DirectML are experimental.",
+          "coreml": "Core ML (All Apple Hardware)",
+          "neuralEngine": "Neural Engine + CPU (Core ML)"
         },
         "gpuDevice": {
           "auto": "Auto"
+        },
+        "apple": {
+          "title": "Experimental Apple acceleration",
+          "description": "Applies to Parakeet Unified English; other models keep their usual backend. Downloads about 1.2 GB for GPU or 0.6 GB for Neural Engine. Live preview is unavailable in this mode.",
+          "off": "Off (existing backend)",
+          "gpu": "All Apple hardware",
+          "neural": "Neural Engine",
+          "preparing": "Preparing Apple models…",
+          "progress": "Downloading Apple models: {{percent}}%",
+          "cancel": "Cancel download",
+          "prewarmTitle": "Warm model after loading",
+          "prewarmDescription": "Prepare the model once after each load to reduce the first transcription delay.",
+          "keepTitle": "Keep Apple model loaded",
+          "keepDescription": "Prepare the selected Parakeet model at app launch and keep it loaded until you quit, switch models, or unload it manually. Uses more memory and overrides the inactivity timeout for this backend.",
+          "fallback": "Apple acceleration failed. Handy is using the existing model backend."
         }
       },
       "startHidden": {

@@ -1,0 +1,174 @@
+{
+  "accessed_date": "2026-10-02",
+  "sources": [
+    {
+      "id": "apple_m5_gpu",
+      "title": "Apple M5/A19 GPU neural accelerators",
+      "url": "https://developer.apple.com/videos/play/tech-talks/111432/"
+    },
+    {
+      "id": "apple_metal_2026",
+      "title": "WWDC26: custom ML operations with Metal tensors",
+      "url": "https://developer.apple.com/videos/play/wwdc2026/330/"
+    },
+    {
+      "id": "apple_coreai_2026",
+      "title": "WWDC26: Meet Core AI",
+      "url": "https://developer.apple.com/videos/play/wwdc2026/324/"
+    },
+    {
+      "id": "apple_coreai_models",
+      "title": "Apple Core AI models and platform requirements",
+      "url": "https://github.com/apple/coreai-models"
+    },
+    {
+      "id": "apple_coreml_shapes",
+      "title": "Core ML Tools flexible input shapes",
+      "url": "https://apple.github.io/coremltools/docs-guides/source/flexible-inputs.html"
+    },
+    {
+      "id": "apple_ane_transformers",
+      "title": "Apple Transformer graph optimization for ANE",
+      "url": "https://machinelearning.apple.com/research/neural-engine-transformers"
+    },
+    {
+      "id": "apple_compute_plan",
+      "title": "Apple MLComputePlan preferred device documentation",
+      "url": "https://developer.apple.com/documentation/coreml/mlcomputeplan-1w21n/deviceusage/preferred"
+    },
+    {
+      "id": "apple_speech",
+      "title": "WWDC25 SpeechAnalyzer and on-device SpeechTranscriber",
+      "url": "https://developer.apple.com/videos/play/wwdc2025/277/?time=161"
+    },
+    {
+      "id": "fluid_unified",
+      "title": "FluidAudio Unified stage placement",
+      "url": "https://github.com/FluidInference/FluidAudio/blob/0b1f46289fe27d95b5e66ad8be46e64f5ee02ae7/Sources/FluidAudio/ASR/Parakeet/Unified/UnifiedAsrManager.swift"
+    },
+    {
+      "id": "fluid_encoder",
+      "title": "FluidAudio v3 encoder placement benchmark",
+      "url": "https://github.com/FluidInference/FluidAudio/blob/0b1f46289fe27d95b5e66ad8be46e64f5ee02ae7/Documentation/ASR/EncoderComputePlacement.md"
+    },
+    {
+      "id": "fluid_hints",
+      "title": "FluidAudio regression from optimization hints",
+      "url": "https://github.com/FluidInference/FluidAudio/blob/0b1f46289fe27d95b5e66ad8be46e64f5ee02ae7/Sources/FluidAudio/Shared/MLModelConfigurationUtils.swift"
+    },
+    {
+      "id": "native_model",
+      "title": "Core ML Parakeet Unified model card",
+      "url": "https://huggingface.co/FluidInference/parakeet-unified-en-0.6b-coreml"
+    },
+    {
+      "id": "whisperkit",
+      "title": "WhisperKit stage compute options",
+      "url": "https://github.com/argmaxinc/argmax-oss-swift/blob/f4e5d6be37ec820614fb0d72037e76c22d4c16f7/Sources/WhisperKit/Core/Models.swift"
+    },
+    {
+      "id": "mlx",
+      "title": "MLX supported CPU and GPU devices",
+      "url": "https://github.com/ml-explore/mlx"
+    },
+    {
+      "id": "mlx_audio",
+      "title": "MLX Audio Parakeet implementation",
+      "url": "https://github.com/Blaizzy/mlx-audio/blob/94c7716212b2228f178d2f9c7619a591fd1b0b78/mlx_audio/stt/models/parakeet/parakeet.py"
+    }
+  ],
+  "code_revisions": {
+    "FluidAudio": "0b1f46289fe27d95b5e66ad8be46e64f5ee02ae7",
+    "WhisperKit": "f4e5d6be37ec820614fb0d72037e76c22d4c16f7",
+    "mlx-audio": "94c7716212b2228f178d2f9c7619a591fd1b0b78"
+  },
+  "local_code": {
+    "handy_base": "5ec58f6",
+    "transcribe_cpp_sys": "0.2.4",
+    "transcribe_rs": "0.3.8 with local Core ML patch",
+    "ort": "2.0.0-rc.12"
+  },
+  "apple_framework_availability": {
+    "core_ai": [
+      {
+        "beta": false,
+        "introducedAt": "27.0",
+        "name": "iOS"
+      },
+      {
+        "beta": false,
+        "introducedAt": "27.0",
+        "name": "iPadOS"
+      },
+      {
+        "beta": false,
+        "introducedAt": "27.0",
+        "name": "Mac Catalyst"
+      },
+      {
+        "beta": false,
+        "introducedAt": "27.0",
+        "name": "macOS"
+      },
+      {
+        "beta": false,
+        "introducedAt": "27.0",
+        "name": "tvOS"
+      },
+      {
+        "beta": false,
+        "introducedAt": "27.0",
+        "name": "visionOS"
+      },
+      {
+        "beta": false,
+        "introducedAt": "27.0",
+        "name": "watchOS"
+      }
+    ],
+    "speech_transcriber": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "iOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "iPadOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "Mac Catalyst",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "macOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "tvOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "visionOS",
+        "unavailable": false
+      }
+    ]
+  }
+}

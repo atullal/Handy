@@ -177,6 +177,7 @@ impl StreamRouter {
 }
 
 enum LoadedEngine {
+    NativeApple(crate::apple_asr::NativeAsrClient),
     /// Whisper-family models (whisper, breeze-asr, custom .bin/.gguf) via
     /// transcribe-cpp. Holds the live `Session`, which keeps its `Model` alive
     /// internally, so repeated dictation reuses the session without reloading.
@@ -315,12 +316,25 @@ impl TranscriptionManager {
                     }
 
                     let settings = get_settings(&app_handle_cloned);
+                    if app_handle_cloned
+                        .try_state::<crate::CliArgs>()
+                        .is_some_and(|args| args.transcribe_file.is_some())
+                    {
+                        // Benchmarks retain one engine independent of the GUI timeout.
+                        continue;
+                    }
                     let timeout = settings.model_unload_timeout;
 
                     // Skip Immediately — that variant is handled by
                     // maybe_unload_immediately() after each transcription.
                     // Treating it as 0s here would unload the model mid-recording.
                     if timeout == ModelUnloadTimeout::Immediately {
+                        continue;
+                    }
+                    if settings.apple_asr_mode != crate::settings::AppleAsrMode::Off
+                        && settings.apple_asr_keep_loaded
+                        && manager_cloned.native_engine_loaded()
+                    {
                         continue;
                     }
 
@@ -457,7 +471,20 @@ impl TranscriptionManager {
 
     /// Unloads the model immediately if the setting is enabled and the model is loaded
     pub fn maybe_unload_immediately(&self, context: &str) {
+        if self
+            .app_handle
+            .try_state::<crate::CliArgs>()
+            .is_some_and(|args| args.transcribe_file.is_some())
+        {
+            return;
+        }
         let settings = get_settings(&self.app_handle);
+        if settings.apple_asr_mode != crate::settings::AppleAsrMode::Off
+            && settings.apple_asr_keep_loaded
+            && self.native_engine_loaded()
+        {
+            return;
+        }
         if settings.model_unload_timeout == ModelUnloadTimeout::Immediately
             && self.is_model_loaded()
         {
@@ -482,7 +509,21 @@ impl TranscriptionManager {
         model_id: &str,
         device_index: Option<usize>,
     ) -> Result<()> {
-        apply_accelerator_settings(&self.app_handle);
+        self.load_model_with_accelerators(model_id, device_index, None, None)
+    }
+
+    /// Benchmark-only overrides are applied to this process, never the settings store.
+    pub fn load_model_with_accelerators(
+        &self,
+        model_id: &str,
+        device_index: Option<usize>,
+        ort_override: Option<OrtAcceleratorSetting>,
+        native_override: Option<&crate::apple_asr::NativeOverride>,
+    ) -> Result<()> {
+        if let Some(accelerator) = ort_override {
+            validate_ort_accelerator(accelerator).map_err(anyhow::Error::msg)?;
+        }
+        apply_accelerator_settings_with_override(&self.app_handle, ort_override);
 
         let load_start = std::time::Instant::now();
         debug!("Starting to load model: {}", model_id);
@@ -514,6 +555,18 @@ impl TranscriptionManager {
                 return Err(anyhow::anyhow!(error_msg));
             }
         };
+        let settings = get_settings(&self.app_handle);
+        let native_mode = native_override
+            .map(|choice| choice.mode)
+            .unwrap_or(settings.apple_asr_mode);
+        if native_mode != crate::settings::AppleAsrMode::Off
+            && native_override.is_some()
+            && (!crate::apple_asr::supports_model(model_id)
+                || device_index.is_some()
+                || ort_override.is_some())
+        {
+            return Err(anyhow::anyhow!("Native Apple ASR supports only Parakeet Unified English GGUF; omit other accelerator overrides"));
+        }
 
         // Every failure after loading starts must emit a terminal event so the
         // frontend can never remain in its loading state.
@@ -531,6 +584,12 @@ impl TranscriptionManager {
 
         if !model_info.is_downloaded {
             let error_msg = "Model not downloaded";
+            emit_loading_failed(error_msg);
+            return Err(anyhow::anyhow!(error_msg));
+        }
+
+        if ort_override.is_some() && matches!(model_info.engine_type, EngineType::TranscribeCpp) {
+            let error_msg = "ONNX acceleration cannot be applied to a GGUF model; select an ONNX model or use --device-index for Metal/CPU";
             emit_loading_failed(error_msg);
             return Err(anyhow::anyhow!(error_msg));
         }
@@ -555,155 +614,212 @@ impl TranscriptionManager {
 
         // Create appropriate engine based on model type
 
-        let loaded_engine = match model_info.engine_type {
-            EngineType::TranscribeCpp => {
-                // The whisper backend is chosen at load time (transcribe-cpp has
-                // no runtime global). With an explicit `device_index` (the
-                // --device-index flag) hard-select that registered device;
-                // otherwise re-read the persisted accelerator preference (so an
-                // accelerator change marked for reload takes effect here).
-                let (backend, device) = match device_index {
-                    Some(index) => resolve_device_index(index).inspect_err(|e| {
-                        emit_loading_failed(&e.to_string());
-                    })?,
-                    None => {
-                        let settings = get_settings(&self.app_handle);
-                        let accelerator = settings.transcribe_accelerator;
-                        let device = resolve_gpu_device(
-                            accelerator,
-                            settings.transcribe_gpu_device.as_deref(),
-                        );
-                        // Backend::Auto accepts an exact GPU device. Without a
-                        // valid exact device, backend selection handles the
-                        // retired generic GPU state and host CPU guard.
-                        let backend = if device.is_some() {
-                            Backend::Auto
-                        } else {
-                            select_transcribe_backend(accelerator)
-                        };
-                        (backend, device)
+        let native_engine = if native_mode != crate::settings::AppleAsrMode::Off
+            && crate::apple_asr::supports_model(model_id)
+        {
+            let native_path = native_override
+                .and_then(|choice| choice.model_directory.clone())
+                .map(Ok)
+                .unwrap_or_else(|| crate::apple_asr::model_directory(&self.app_handle))?;
+            let prewarm = native_override
+                .map(|choice| choice.prewarm)
+                .unwrap_or(settings.apple_asr_prewarm);
+            match crate::apple_asr::NativeAsrClient::load(
+                &self.app_handle,
+                &native_path,
+                native_mode,
+                prewarm,
+            ) {
+                Ok(mut client) => {
+                    if native_override.is_none() {
+                        client.fallback_model = Some(model_path.clone());
                     }
-                };
-                let requested_device = device
-                    .as_ref()
-                    .map(transcribe_device_label)
-                    .unwrap_or_else(|| "automatic".to_string());
-                let model_options = ModelOptions { backend, device };
-                let model = Model::load_with(&model_path, &model_options).map_err(|e| {
-                    let error_msg = format!("Failed to load whisper model {}: {}", model_id, e);
-                    emit_loading_failed(&error_msg);
-                    anyhow::anyhow!(error_msg)
-                })?;
-                // The bound backend may differ from the request (e.g. CPU
-                // fallback under Auto); log what actually loaded.
-                let bound_backend = model.backend();
-                let session = model.session().map_err(|e| {
-                    let error_msg = format!(
-                        "Failed to create session for whisper model {}: {}",
-                        model_id, e
+                    info!("Native Apple encoder {:?}, CPU decoder, model load {:.1}ms, prewarm {:.1}ms", native_mode, client.load_ms, client.warmup_ms);
+                    self.model_manager.set_runtime_capabilities(
+                        model_id,
+                        false,
+                        false,
+                        false,
+                        vec!["en".into()],
                     );
-                    emit_loading_failed(&error_msg);
-                    anyhow::anyhow!(error_msg)
-                })?;
-                // Reconcile the registry's advertised capabilities with the
-                // loaded model's real ones (GGUF metadata) so badges/gating
-                // reflect runtime truth, not the pre-download probe. The
-                // load-completed event below triggers the frontend refresh.
-                let caps = session.model().capabilities();
-                self.model_manager.set_runtime_capabilities(
-                    model_id,
-                    caps.supports_streaming,
-                    caps.supports_translate,
-                    caps.supports_language_detect,
-                    caps.languages.clone(),
-                );
-                let bound_device = model
-                    .device()
-                    .map(|device| transcribe_device_label(&device))
-                    .unwrap_or_else(|_| "unknown".to_string());
-                info!(
-                    "Loaded whisper model '{}' (requested {:?}, requested device '{}', \
-                     bound backend '{}', bound device '{}', supports_streaming={}, \
-                     supports_translate={}, supports_language_detect={})",
-                    model_id,
-                    backend,
-                    requested_device,
-                    bound_backend,
-                    bound_device,
-                    caps.supports_streaming,
-                    caps.supports_translate,
-                    caps.supports_language_detect
-                );
-                LoadedEngine::TranscribeCpp(session)
+                    Some(LoadedEngine::NativeApple(client))
+                }
+                Err(error) if native_override.is_some() => {
+                    emit_loading_failed(&error.to_string());
+                    return Err(error);
+                }
+                Err(error) => {
+                    warn!("Native Apple ASR load failed; using existing GGUF backend: {error}");
+                    let _ = self
+                        .app_handle
+                        .emit("apple-asr-fallback", error.to_string());
+                    None
+                }
             }
-            EngineType::Parakeet => {
-                let engine =
-                    ParakeetModel::load(&model_path, &Quantization::Int8).map_err(|e| {
-                        let error_msg =
-                            format!("Failed to load parakeet model {}: {}", model_id, e);
+        } else {
+            None
+        };
+
+        let loaded_engine = if let Some(engine) = native_engine {
+            engine
+        } else {
+            match model_info.engine_type {
+                EngineType::TranscribeCpp => {
+                    // The whisper backend is chosen at load time (transcribe-cpp has
+                    // no runtime global). With an explicit `device_index` (the
+                    // --device-index flag) hard-select that registered device;
+                    // otherwise re-read the persisted accelerator preference (so an
+                    // accelerator change marked for reload takes effect here).
+                    let (backend, device) = match device_index {
+                        Some(index) => resolve_device_index(index).inspect_err(|e| {
+                            emit_loading_failed(&e.to_string());
+                        })?,
+                        None => {
+                            let settings = get_settings(&self.app_handle);
+                            let accelerator = settings.transcribe_accelerator;
+                            let device = resolve_gpu_device(
+                                accelerator,
+                                settings.transcribe_gpu_device.as_deref(),
+                            );
+                            // Backend::Auto accepts an exact GPU device. Without a
+                            // valid exact device, backend selection handles the
+                            // retired generic GPU state and host CPU guard.
+                            let backend = if device.is_some() {
+                                Backend::Auto
+                            } else {
+                                select_transcribe_backend(accelerator)
+                            };
+                            (backend, device)
+                        }
+                    };
+                    let requested_device = device
+                        .as_ref()
+                        .map(transcribe_device_label)
+                        .unwrap_or_else(|| "automatic".to_string());
+                    let model_options = ModelOptions { backend, device };
+                    let model = Model::load_with(&model_path, &model_options).map_err(|e| {
+                        let error_msg = format!("Failed to load whisper model {}: {}", model_id, e);
                         emit_loading_failed(&error_msg);
                         anyhow::anyhow!(error_msg)
                     })?;
-                LoadedEngine::Parakeet(engine)
-            }
-            EngineType::Moonshine => {
-                let engine = MoonshineModel::load(
-                    &model_path,
-                    MoonshineVariant::Base,
-                    &Quantization::default(),
-                )
-                .map_err(|e| {
-                    let error_msg = format!("Failed to load moonshine model {}: {}", model_id, e);
-                    emit_loading_failed(&error_msg);
-                    anyhow::anyhow!(error_msg)
-                })?;
-                LoadedEngine::Moonshine(engine)
-            }
-            EngineType::MoonshineStreaming => {
-                let engine = StreamingModel::load(&model_path, 0, &Quantization::default())
-                    .map_err(|e| {
+                    // The bound backend may differ from the request (e.g. CPU
+                    // fallback under Auto); log what actually loaded.
+                    let bound_backend = model.backend();
+                    let session = model.session().map_err(|e| {
                         let error_msg = format!(
-                            "Failed to load moonshine streaming model {}: {}",
+                            "Failed to create session for whisper model {}: {}",
                             model_id, e
                         );
                         emit_loading_failed(&error_msg);
                         anyhow::anyhow!(error_msg)
                     })?;
-                LoadedEngine::MoonshineStreaming(engine)
-            }
-            EngineType::SenseVoice => {
-                let engine =
-                    SenseVoiceModel::load(&model_path, &Quantization::Int8).map_err(|e| {
+                    // Reconcile the registry's advertised capabilities with the
+                    // loaded model's real ones (GGUF metadata) so badges/gating
+                    // reflect runtime truth, not the pre-download probe. The
+                    // load-completed event below triggers the frontend refresh.
+                    let caps = session.model().capabilities();
+                    self.model_manager.set_runtime_capabilities(
+                        model_id,
+                        caps.supports_streaming,
+                        caps.supports_translate,
+                        caps.supports_language_detect,
+                        caps.languages.clone(),
+                    );
+                    let bound_device = model
+                        .device()
+                        .map(|device| transcribe_device_label(&device))
+                        .unwrap_or_else(|_| "unknown".to_string());
+                    info!(
+                        "Loaded whisper model '{}' (requested {:?}, requested device '{}', \
+                     bound backend '{}', bound device '{}', supports_streaming={}, \
+                     supports_translate={}, supports_language_detect={})",
+                        model_id,
+                        backend,
+                        requested_device,
+                        bound_backend,
+                        bound_device,
+                        caps.supports_streaming,
+                        caps.supports_translate,
+                        caps.supports_language_detect
+                    );
+                    LoadedEngine::TranscribeCpp(session)
+                }
+                EngineType::Parakeet => {
+                    let engine =
+                        ParakeetModel::load(&model_path, &Quantization::Int8).map_err(|e| {
+                            let error_msg =
+                                format!("Failed to load parakeet model {}: {}", model_id, e);
+                            emit_loading_failed(&error_msg);
+                            anyhow::anyhow!(error_msg)
+                        })?;
+                    LoadedEngine::Parakeet(engine)
+                }
+                EngineType::Moonshine => {
+                    let engine = MoonshineModel::load(
+                        &model_path,
+                        MoonshineVariant::Base,
+                        &Quantization::default(),
+                    )
+                    .map_err(|e| {
                         let error_msg =
-                            format!("Failed to load SenseVoice model {}: {}", model_id, e);
+                            format!("Failed to load moonshine model {}: {}", model_id, e);
                         emit_loading_failed(&error_msg);
                         anyhow::anyhow!(error_msg)
                     })?;
-                LoadedEngine::SenseVoice(engine)
-            }
-            EngineType::GigaAM => {
-                let engine = GigaAMModel::load(&model_path, &Quantization::Int8).map_err(|e| {
-                    let error_msg = format!("Failed to load gigaam model {}: {}", model_id, e);
-                    emit_loading_failed(&error_msg);
-                    anyhow::anyhow!(error_msg)
-                })?;
-                LoadedEngine::GigaAM(engine)
-            }
-            EngineType::Canary => {
-                let engine = CanaryModel::load(&model_path, &Quantization::Int8).map_err(|e| {
-                    let error_msg = format!("Failed to load canary model {}: {}", model_id, e);
-                    emit_loading_failed(&error_msg);
-                    anyhow::anyhow!(error_msg)
-                })?;
-                LoadedEngine::Canary(engine)
-            }
-            EngineType::Cohere => {
-                let engine = CohereModel::load(&model_path, &Quantization::Int8).map_err(|e| {
-                    let error_msg = format!("Failed to load cohere model {}: {}", model_id, e);
-                    emit_loading_failed(&error_msg);
-                    anyhow::anyhow!(error_msg)
-                })?;
-                LoadedEngine::Cohere(engine)
+                    LoadedEngine::Moonshine(engine)
+                }
+                EngineType::MoonshineStreaming => {
+                    let engine = StreamingModel::load(&model_path, 0, &Quantization::default())
+                        .map_err(|e| {
+                            let error_msg = format!(
+                                "Failed to load moonshine streaming model {}: {}",
+                                model_id, e
+                            );
+                            emit_loading_failed(&error_msg);
+                            anyhow::anyhow!(error_msg)
+                        })?;
+                    LoadedEngine::MoonshineStreaming(engine)
+                }
+                EngineType::SenseVoice => {
+                    let engine =
+                        SenseVoiceModel::load(&model_path, &Quantization::Int8).map_err(|e| {
+                            let error_msg =
+                                format!("Failed to load SenseVoice model {}: {}", model_id, e);
+                            emit_loading_failed(&error_msg);
+                            anyhow::anyhow!(error_msg)
+                        })?;
+                    LoadedEngine::SenseVoice(engine)
+                }
+                EngineType::GigaAM => {
+                    let engine =
+                        GigaAMModel::load(&model_path, &Quantization::Int8).map_err(|e| {
+                            let error_msg =
+                                format!("Failed to load gigaam model {}: {}", model_id, e);
+                            emit_loading_failed(&error_msg);
+                            anyhow::anyhow!(error_msg)
+                        })?;
+                    LoadedEngine::GigaAM(engine)
+                }
+                EngineType::Canary => {
+                    let engine =
+                        CanaryModel::load(&model_path, &Quantization::Int8).map_err(|e| {
+                            let error_msg =
+                                format!("Failed to load canary model {}: {}", model_id, e);
+                            emit_loading_failed(&error_msg);
+                            anyhow::anyhow!(error_msg)
+                        })?;
+                    LoadedEngine::Canary(engine)
+                }
+                EngineType::Cohere => {
+                    let engine =
+                        CohereModel::load(&model_path, &Quantization::Int8).map_err(|e| {
+                            let error_msg =
+                                format!("Failed to load cohere model {}: {}", model_id, e);
+                            emit_loading_failed(&error_msg);
+                            anyhow::anyhow!(error_msg)
+                        })?;
+                    LoadedEngine::Cohere(engine)
+                }
             }
         };
 
@@ -782,11 +898,34 @@ impl TranscriptionManager {
     /// model is loaded.
     pub fn current_backend(&self) -> Option<String> {
         match self.lock_engine().as_ref() {
+            Some(LoadedEngine::NativeApple(client)) => Some(
+                match client.mode {
+                    crate::settings::AppleAsrMode::Gpu => "coreml_native_gpu",
+                    _ => "coreml_native_neural",
+                }
+                .into(),
+            ),
             Some(LoadedEngine::TranscribeCpp(session)) => {
                 Some(session.model().backend().to_string())
             }
             Some(_) => Some("onnx".to_string()),
             None => None,
+        }
+    }
+
+    fn native_engine_loaded(&self) -> bool {
+        matches!(
+            self.lock_engine().as_ref(),
+            Some(LoadedEngine::NativeApple(_))
+        )
+    }
+
+    pub fn native_load_timings(&self) -> Option<serde_json::Value> {
+        match self.lock_engine().as_ref() {
+            Some(LoadedEngine::NativeApple(client)) => Some(
+                serde_json::json!({"worker_load_ms": client.load_ms, "prewarm_ms": client.warmup_ms}),
+            ),
+            _ => None,
         }
     }
 
@@ -1301,6 +1440,47 @@ impl TranscriptionManager {
 
             let transcribe_result = catch_unwind(AssertUnwindSafe(|| -> Result<String> {
                 match &mut engine {
+                    LoadedEngine::NativeApple(client) => match client.transcribe(&audio) {
+                        Ok(text) => Ok(text),
+                        Err(error) => {
+                            if let Some(path) = client.fallback_model.clone() {
+                                warn!("Native Apple inference failed; retrying with GGUF: {error}");
+                                let _ = self
+                                    .app_handle
+                                    .emit("apple-asr-fallback", error.to_string());
+                                let device = resolve_gpu_device(
+                                    settings.transcribe_accelerator,
+                                    settings.transcribe_gpu_device.as_deref(),
+                                );
+                                let model = Model::load_with(
+                                    &path,
+                                    &ModelOptions {
+                                        backend: select_transcribe_backend(
+                                            settings.transcribe_accelerator,
+                                        ),
+                                        device,
+                                    },
+                                )?;
+                                let mut session = model.session()?;
+                                let caps = session.model().capabilities();
+                                self.model_manager.set_runtime_capabilities(
+                                    &active_model,
+                                    caps.supports_streaming,
+                                    caps.supports_translate,
+                                    caps.supports_language_detect,
+                                    caps.languages,
+                                );
+                                let result = session
+                                    .run(&audio, &RunOptions::default())
+                                    .map(|output| output.text)
+                                    .map_err(anyhow::Error::from);
+                                engine = LoadedEngine::TranscribeCpp(session);
+                                result
+                            } else {
+                                Err(error)
+                            }
+                        }
+                    },
                     LoadedEngine::TranscribeCpp(session) => {
                         // Custom words become the initial prompt ONLY for models
                         // that accept one (whisper family). Attaching the
@@ -2038,6 +2218,13 @@ fn transcribe_device_label(device: &transcribe_cpp::Device) -> String {
 /// chosen at model-load time from [`select_transcribe_backend`], so changing the
 /// accelerator only needs a model reload (see `reload_model_on_next_use`).
 pub fn apply_accelerator_settings(app: &tauri::AppHandle) {
+    apply_accelerator_settings_with_override(app, None);
+}
+
+fn apply_accelerator_settings_with_override(
+    app: &tauri::AppHandle,
+    ort_override: Option<OrtAcceleratorSetting>,
+) {
     use transcribe_rs::accel;
 
     let settings = get_settings(app);
@@ -2047,15 +2234,63 @@ pub fn apply_accelerator_settings(app: &tauri::AppHandle) {
         settings.transcribe_accelerator
     );
 
-    let ort_pref = match settings.ort_accelerator {
+    let ort_setting = ort_override.unwrap_or(settings.ort_accelerator);
+    #[cfg(all(target_os = "macos", target_arch = "aarch64"))]
+    transcribe_rs::onnx::coreml::configure(transcribe_rs::onnx::coreml::CoreMlOptions {
+        neural_engine_only: ort_setting == OrtAcceleratorSetting::CoreMlNeuralEngine,
+        cache_directory: app
+            .path()
+            .app_cache_dir()
+            .ok()
+            .map(|root| root.join("coreml")),
+        profile_compute_plan: std::env::var_os("HANDY_COREML_PROFILE").is_some(),
+    });
+
+    let ort_pref = match ort_setting {
         OrtAcceleratorSetting::Auto => accel::OrtAccelerator::Auto,
         OrtAcceleratorSetting::Cpu => accel::OrtAccelerator::CpuOnly,
         OrtAcceleratorSetting::Cuda => accel::OrtAccelerator::Cuda,
         OrtAcceleratorSetting::DirectMl => accel::OrtAccelerator::DirectMl,
         OrtAcceleratorSetting::Rocm => accel::OrtAccelerator::Rocm,
+        OrtAcceleratorSetting::CoreMl | OrtAcceleratorSetting::CoreMlNeuralEngine => {
+            accel::OrtAccelerator::CoreMl
+        }
     };
     accel::set_ort_accelerator(ort_pref);
     info!("ORT accelerator set to: {}", ort_pref);
+}
+
+pub fn validate_ort_accelerator(accelerator: OrtAcceleratorSetting) -> Result<(), String> {
+    let value = serde_json::to_value(accelerator).map_err(|error| error.to_string())?;
+    let name = value.as_str().unwrap_or_default();
+    if name == "auto"
+        || available_ort_accelerators()
+            .iter()
+            .any(|option| option == name)
+    {
+        Ok(())
+    } else {
+        Err(format!(
+            "ONNX accelerator '{name}' is unavailable in this build or runtime"
+        ))
+    }
+}
+
+fn available_ort_accelerators() -> Vec<String> {
+    #[allow(unused_mut)]
+    let mut options: Vec<String> = transcribe_rs::accel::OrtAccelerator::available()
+        .into_iter()
+        .map(|a| a.to_string())
+        .collect();
+    #[cfg(all(target_os = "macos", target_arch = "aarch64"))]
+    {
+        if transcribe_rs::onnx::coreml::is_available() {
+            options.push("coreml_neural_engine".to_string());
+        } else {
+            options.retain(|option| option != "coreml");
+        }
+    }
+    options
 }
 
 #[derive(Serialize, Clone, Debug, Type)]
@@ -2134,6 +2369,7 @@ fn cached_gpu_devices() -> &'static [GpuDeviceOption] {
 
 #[derive(Serialize, Clone, Debug, Type)]
 pub struct AvailableAccelerators {
+    pub apple_native: bool,
     pub transcribe: Vec<String>,
     pub ort: Vec<String>,
     pub gpu_devices: Vec<GpuDeviceOption>,
@@ -2141,16 +2377,12 @@ pub struct AvailableAccelerators {
 
 /// Return the accelerators available to this process on its current host.
 pub fn get_available_accelerators() -> AvailableAccelerators {
-    use transcribe_rs::accel::OrtAccelerator;
-
-    let ort_options: Vec<String> = OrtAccelerator::available()
-        .into_iter()
-        .map(|a| a.to_string())
-        .collect();
+    let ort_options = available_ort_accelerators();
 
     let transcribe_options = available_transcribe_accelerators(transcribe_gpu_disabled_for_host());
 
     AvailableAccelerators {
+        apple_native: crate::apple_asr::available(),
         transcribe: transcribe_options,
         ort: ort_options,
         gpu_devices: cached_gpu_devices().to_vec(),

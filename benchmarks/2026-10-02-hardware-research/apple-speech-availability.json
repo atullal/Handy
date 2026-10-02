@@ -1,0 +1,15 @@
+{
+  "english_asset_status" : "supported",
+  "available" : true,
+  "installed_locales" : [
+    "en_ZA",
+    "en_IN",
+    "en_NZ",
+    "en_AU",
+    "en_US",
+    "en_CA",
+    "en_GB",
+    "en_IE",
+    "en_SG"
+  ]
+}

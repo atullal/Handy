@@ -1,5 +1,13 @@
 # Handy
 
+This is [atullal's Apple Silicon acceleration research fork](https://github.com/atullal/Handy),
+based on upstream `main` at `5ec58f6`. It adds opt-in native Core ML Parakeet GPU
+and Neural Engine profiles, warm-up and model retention, plus benchmark tooling.
+The original backend remains the default. See the
+[fork build and benchmark guide](BUILD.md#using-the-native-apple-backend-in-this-fork)
+and [hardware research](BUILD.md#m5-pro-hardware-research-and-native-core-ml-prototype-2026-10-02).
+Core AI is a documented follow-up for macOS/Xcode 27; it is not implemented here.
+
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/WVBeWsNXK4)
 
 **A free, open source, and extensible speech-to-text application that works completely offline.**

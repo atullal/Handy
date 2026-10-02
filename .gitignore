@@ -10,6 +10,8 @@ lerna-debug.log*
 package-lock.json
 
 node_modules
+src-tauri/resources/native-asr/HandyNativeAsrWorker
+benchmarks/**/fresh-coreml-cache-artifacts/
 dist
 dist-ssr
 *.local

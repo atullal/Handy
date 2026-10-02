@@ -1,0 +1,387 @@
+{
+  "hardware": {
+    "chip": "Apple M5 Pro",
+    "memory_bytes": 25769803776,
+    "macos": "26.5.1",
+    "machine": "arm64",
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=35389539)\t100%; finishing charge; 0:00 remaining present: true",
+    "audio_sha256": "d7d4e74b8a333ed02186008bc109a1b1a19d16da668bd56e785d80d69a16a72f",
+    "pcm_sha256": "a29462b8ebd467318000e683b9117ade46230d3255ed2024e7db894abd9b38c9",
+    "app_sha256": "ef7898245725331831671f1537f892f9ee5b1681947e3a5ef479d097a10df5d9",
+    "method": "New process per trial; one first inference plus warm repeats. Optional worker prewarm is included in load_ms and separately reported. Total app path includes PCM transport/text processing, excludes recording, VAD and paste. Longer inputs repeat the source, not a diverse quality corpus."
+  },
+  "summaries": [
+    {
+      "route": "metal",
+      "audio_s": 11.0,
+      "warm_median_ms": 68.5,
+      "warm_min_ms": 66,
+      "warm_max_ms": 245,
+      "first_ms": [
+        185,
+        108
+      ],
+      "load_ms": [
+        471,
+        208
+      ],
+      "native_load": [
+        null,
+        null
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "coreml_gpu",
+      "audio_s": 11.0,
+      "warm_median_ms": 47.0,
+      "warm_min_ms": 47,
+      "warm_max_ms": 51,
+      "first_ms": [
+        417,
+        265
+      ],
+      "load_ms": [
+        5880,
+        2407
+      ],
+      "native_load": [
+        {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 3564.8715
+        },
+        {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 272.011834
+        }
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "coreml_neural",
+      "audio_s": 11.0,
+      "warm_median_ms": 57.0,
+      "warm_min_ms": 56,
+      "warm_max_ms": 57,
+      "first_ms": [
+        68,
+        67
+      ],
+      "load_ms": [
+        1286,
+        1236
+      ],
+      "native_load": [
+        {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 163.76425
+        },
+        {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 142.397334
+        }
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "coreml_gpu_prewarmed",
+      "audio_s": 11.0,
+      "warm_median_ms": 47.5,
+      "warm_min_ms": 46,
+      "warm_max_ms": 60,
+      "first_ms": [
+        48,
+        51
+      ],
+      "load_ms": [
+        2921,
+        4607
+      ],
+      "native_load": [
+        {
+          "prewarm_ms": 384.236583,
+          "worker_load_ms": 359.530417
+        },
+        {
+          "prewarm_ms": 422.129417,
+          "worker_load_ms": 2043.265167
+        }
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "coreml_neural_prewarmed",
+      "audio_s": 11.0,
+      "warm_median_ms": 57.0,
+      "warm_min_ms": 56,
+      "warm_max_ms": 58,
+      "first_ms": [
+        58,
+        58
+      ],
+      "load_ms": [
+        1312,
+        1324
+      ],
+      "native_load": [
+        {
+          "prewarm_ms": 66.893584,
+          "worker_load_ms": 146.440792
+        },
+        {
+          "prewarm_ms": 72.43975,
+          "worker_load_ms": 152.233625
+        }
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "metal",
+      "audio_s": 33.0,
+      "warm_median_ms": 156.0,
+      "warm_min_ms": 150,
+      "warm_max_ms": 189,
+      "first_ms": [
+        256,
+        172
+      ],
+      "load_ms": [
+        193,
+        185
+      ],
+      "native_load": [
+        null,
+        null
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "coreml_gpu",
+      "audio_s": 33.0,
+      "warm_median_ms": 144.0,
+      "warm_min_ms": 143,
+      "warm_max_ms": 164,
+      "first_ms": [
+        382,
+        527
+      ],
+      "load_ms": [
+        2950,
+        2967
+      ],
+      "native_load": [
+        {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 801.584958
+        },
+        {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 805.852375
+        }
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "coreml_neural",
+      "audio_s": 33.0,
+      "warm_median_ms": 172.0,
+      "warm_min_ms": 171,
+      "warm_max_ms": 179,
+      "first_ms": [
+        263,
+        187
+      ],
+      "load_ms": [
+        1312,
+        1256
+      ],
+      "native_load": [
+        {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 191.166209
+        },
+        {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 161.065042
+        }
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "coreml_gpu_prewarmed",
+      "audio_s": 33.0,
+      "warm_median_ms": 144.0,
+      "warm_min_ms": 141,
+      "warm_max_ms": 148,
+      "first_ms": [
+        148,
+        149
+      ],
+      "load_ms": [
+        2808,
+        3424
+      ],
+      "native_load": [
+        {
+          "prewarm_ms": 288.247917,
+          "worker_load_ms": 367.641792
+        },
+        {
+          "prewarm_ms": 360.729708,
+          "worker_load_ms": 920.011584
+        }
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "coreml_neural_prewarmed",
+      "audio_s": 33.0,
+      "warm_median_ms": 173.5,
+      "warm_min_ms": 172,
+      "warm_max_ms": 175,
+      "first_ms": [
+        190,
+        175
+      ],
+      "load_ms": [
+        1355,
+        1287
+      ],
+      "native_load": [
+        {
+          "prewarm_ms": 84.37025,
+          "worker_load_ms": 157.219333
+        },
+        {
+          "prewarm_ms": 66.936458,
+          "worker_load_ms": 120.609417
+        }
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "metal",
+      "audio_s": 55.0,
+      "warm_median_ms": 260.0,
+      "warm_min_ms": 251,
+      "warm_max_ms": 271,
+      "first_ms": [
+        268,
+        279
+      ],
+      "load_ms": [
+        163,
+        187
+      ],
+      "native_load": [
+        null,
+        null
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "coreml_gpu",
+      "audio_s": 55.0,
+      "warm_median_ms": 251.0,
+      "warm_min_ms": 245,
+      "warm_max_ms": 314,
+      "first_ms": [
+        558,
+        495
+      ],
+      "load_ms": [
+        2425,
+        2434
+      ],
+      "native_load": [
+        {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 265.875208
+        },
+        {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 273.992125
+        }
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "coreml_neural",
+      "audio_s": 55.0,
+      "warm_median_ms": 293.0,
+      "warm_min_ms": 290,
+      "warm_max_ms": 297,
+      "first_ms": [
+        311,
+        306
+      ],
+      "load_ms": [
+        1357,
+        1264
+      ],
+      "native_load": [
+        {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 197.99175
+        },
+        {
+          "prewarm_ms": 0.0,
+          "worker_load_ms": 160.075084
+        }
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "coreml_gpu_prewarmed",
+      "audio_s": 55.0,
+      "warm_median_ms": 252.0,
+      "warm_min_ms": 246,
+      "warm_max_ms": 265,
+      "first_ms": [
+        278,
+        260
+      ],
+      "load_ms": [
+        4895,
+        2891
+      ],
+      "native_load": [
+        {
+          "prewarm_ms": 482.1565,
+          "worker_load_ms": 2250.388375
+        },
+        {
+          "prewarm_ms": 282.871125,
+          "worker_load_ms": 454.93
+        }
+      ],
+      "words_match_metal": true
+    },
+    {
+      "route": "coreml_neural_prewarmed",
+      "audio_s": 55.0,
+      "warm_median_ms": 291.5,
+      "warm_min_ms": 289,
+      "warm_max_ms": 299,
+      "first_ms": [
+        321,
+        290
+      ],
+      "load_ms": [
+        1343,
+        1273
+      ],
+      "native_load": [
+        {
+          "prewarm_ms": 66.315709,
+          "worker_load_ms": 154.799792
+        },
+        {
+          "prewarm_ms": 65.535541,
+          "worker_load_ms": 118.15375
+        }
+      ],
+      "words_match_metal": true
+    }
+  ]
+}

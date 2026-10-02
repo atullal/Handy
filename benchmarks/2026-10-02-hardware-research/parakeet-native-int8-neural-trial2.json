@@ -1,0 +1,25 @@
+{
+  "audio_s" : 11,
+  "decoder_compute_units" : "cpu",
+  "encoder_compute_units" : "neural",
+  "encoder_precision" : "int8",
+  "engine" : "FluidAudio native Core ML Parakeet Unified offline",
+  "load_ms" : 167.72441699999999,
+  "method" : "First inference plus five warm repeats; end-to-end model inference including Swift mel features and RNNT decoding, excluding audio read\/resampling.",
+  "transcribe_ms" : [
+    71.384208000000001,
+    56.509708000000003,
+    56.438082999999999,
+    55.303375000000003,
+    55.506,
+    55.995083000000001
+  ],
+  "transcripts" : [
+    "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+    "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+    "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+    "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+    "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country.",
+    "And so, my fellow Americans, ask not what your country can do for you. Ask what you can do for your country."
+  ]
+}
